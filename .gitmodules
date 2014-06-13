@@ -1,0 +1,9 @@
+[submodule "tools"]
+	path = tools
+	url = https://github.com/INN/deploy-tools.git
+[submodule "wp-content/themes/largo"]
+	path = wp-content/themes/largo
+	url = https://github.com/INN/largo.git
+[submodule "wp-content/themes/largo-child"]
+	path = wp-content/themes/largo-child
+	url = https://bitbucket.org/projectlargo/theme-lensnola.git
