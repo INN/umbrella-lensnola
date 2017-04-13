@@ -1,6 +1,11 @@
 <?php
 
-function lens_register_sidebars() {
+/**
+ * Register our sidebars and other widget areas
+ *
+ * @since 1.0
+ */
+function largochild_register_sidebars() {
 
 	register_sidebar( array(
 		'name' => 'Top Banner (left)',
@@ -10,7 +15,7 @@ function lens_register_sidebars() {
 		'before_title' => '',
 		'after_title' => '',
 	) );
-
+	
 	register_sidebar( array(
 		'name' => 'Top Text (right)',
 		'id' => 'top_text',
@@ -19,7 +24,16 @@ function lens_register_sidebars() {
 		'before_title' => '',
 		'after_title' => '',
 	) );
-
+		
+	register_sidebar( array(
+		'name' => 'Top About Section',
+		'id' => 'top_about_section',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+	) );
+	
 	register_sidebar( array(
 		'name' 			=> 'Schools Sidebar',
 		'id' 			=> 'sidebar-schools',
@@ -29,4 +43,4 @@ function lens_register_sidebars() {
 		'after_title' 	=> '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'lens_register_sidebars' );
+add_action( 'widgets_init', 'largochild_register_sidebars' );

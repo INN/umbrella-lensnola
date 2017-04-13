@@ -3,7 +3,7 @@
 Template Name: Page-Woo
 */
 
-get_header();
+get_header(); 
 
 ?>
 
@@ -13,12 +13,14 @@ get_header();
 						'title_li' => '',
 						'echo' => false
 					);?>
-
-
-
+	
+	
+	
 	<?php woocommerce_content(); ?>
 
 </div><!-- /.grid_8 #content -->
-
+<aside id="sidebar" class="span4">
 <?php get_sidebar(); ?>
+</aside>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

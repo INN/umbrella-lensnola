@@ -19,7 +19,7 @@ query_posts(
 		$wp_query->query
 	)
 );
-
+	
 if ($page_num == 1):
  ?>
 <script type="text/javascript">
@@ -57,7 +57,7 @@ if ($page_num == 1):
                 //html += '<span class="by-author">' + data.documents[i].source + '</span>';
                 var docdate = new Date (data.documents[i].created_at);
                 html += '<time class="entry-date updated dtstamp pubdate" datetime="' + data.documents[i].created_at + '">' + fullMonthNames[docdate.getMonth()] + ' ' + docdate.getDate() + ', ' + docdate.getFullYear() + '</time>';
-                html += '</div></div></article>';
+                html += '</div></div></article>'; 
             }
             if (data.documents.length > 5) {
                 html += "<h6 style='color:#B43018; margin-top:40px;'>More Documents for '<?php echo get_search_query() ?>':</h6>";
@@ -103,7 +103,7 @@ if ($page_num == 1):
                         get_template_part('content','search-other');
                     endwhile;
                 }
-                else
+                else 
                 {
                     while ( have_posts() ) : the_post();
                         get_template_part( 'content', 'search' );
@@ -124,5 +124,7 @@ if ($page_num == 1):
             <?php endif; ?>
             </div><!--/.grid_8 #content-->
 
+<div id="sidebar" class="span4">
 <?php get_sidebar(); ?>
+</div><!-- /.grid_4 -->
 <?php get_footer(); ?>

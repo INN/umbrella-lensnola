@@ -1,10 +1,6 @@
 @import url("../../largo/css/carousel.css");
-#homepage-slider {
-  margin-bottom: 10px;
-}
-.carousel {
-  margin-bottom: 0;
-}
+#homepage-slider {margin-bottom: 10px;}
+.carousel {margin-bottom: 0;}
 .carousel-control {
   position: absolute;
   top:0;
@@ -27,66 +23,62 @@
   font-size: 40px;
   padding-bottom: 2px;
 }
+
 .carousel-control:hover {
-  background-color:#B43018;
+	background-color:#B43018;
 }
 .carousel-control.left {
   right:70px;
   top: -15px;
-  left: auto;
-  background: url('../images/previous_arrow_off.png') no-repeat 3px 0px;
+  left:auto;
+  background: url(../images/previous_arrow_off.png) no-repeat; background-position: 3px 0px;
 }
-.carousel-control.left:hover {
-  background: url('../images/previous_arrow_on.png') no-repeat 3px 0px;
-}
-.carousel-control.right {
-  top: -15px;
-  background: url('../images/next_arrow_off.png') no-repeat 3px 0px;
-}
-.carousel-control.right:hover {
-  top: -15px;
-  background: url('../images/next_arrow_on.png') no-repeat 3px 0px;
-}
+.carousel-control.left:hover {background: url(../images/previous_arrow_on.png) no-repeat; background-position: 3px 0px;}
+
+.carousel-control.right {top: -15px; background: url(../images/next_arrow_off.png) no-repeat; background-position: 3px 0px;}
+.carousel-control.right:hover {top: -15px; background: url(../images/next_arrow_on.png) no-repeat; background-position: 3px 0px;}
+
 .carousel-caption {
-  border: none;
-  padding-left: 0;
-  width: 85%;
+	border:none;
+	padding-left:0;
+	width: 85%;
 }
+
 .carousel-excerpt {
-  float: left;
-  width: 100%;
-  padding: 0 1% 35px 0;
+	float:left;
+	width:100%;
+	padding:0 1% 35px 0;
 }
-.carousel-excerpt p {
-  font-size: 15.3px;
-  line-height: 18px;
-}
+
+.carousel-excerpt p{font-size: 15.3px; line-height: 18px;}
+
 .carousel-image {
-  float: right;
-  width: 260px;
-  margin-right: -14%;
-  padding-left: 10px;
+	float:right;
+	width:260px;
+	margin-right:-14%;
+	padding-left: 10px;
+	
 }
-.byline {
-  clear: both;
-}
-.carousel .item {
-  float: left;
-}
+
+.byline {clear:both;}
+
+.carousel .item {float:left;}
+
 .carousel-caption h5 {
   font-size: 10px;
   margin-bottom: 4.8px;
 }
+
 .carousel-caption h2,
 .carousel-caption h5,
 .carousel-caption p {
-  color: #333;
+  color: #333333;
 }
+
 .carousel-caption h2 {
   font-size: 32px;
   line-height: 1.3;
   padding-bottom: 2%;
-}
-.carousel-caption h5 a {
-  color: #A7A299;
-}
+  }
+
+.carousel-caption h5 a {color: #A7A299;}

@@ -6,6 +6,7 @@
 get_header();
 
 $postmeta = get_post_meta_all();
+consume_meta('wpcf-_school_state_rating',$postmeta);	// not used
 $grades = array('A-plus'=>'A+',
 				'A'=>'A',
 				'A-minus'=>'A-',
@@ -95,6 +96,9 @@ $grades = array('A-plus'=>'A+',
 							</div>
 						<?php endif;?>
 
+						<?php if ($postmeta['wpcf-_school_facebook'] || $postmeta['wpcf-_school_twitter']):?>
+
+						<?php endif;?>
 					</div>
 				</div>
 
@@ -196,6 +200,9 @@ $grades = array('A-plus'=>'A+',
 			</div>
 		</div>
 		<!-- /.grid_8 #content -->
+		<div id="sidebar" class="span4">
+			<?php get_sidebar('schools'); ?>
+		</div>
 
-<?php get_sidebar('schools'); ?>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

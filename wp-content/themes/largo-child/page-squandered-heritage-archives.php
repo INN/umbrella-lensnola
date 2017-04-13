@@ -40,6 +40,8 @@ get_header(); ?>
 			} ?>
 	</div>
 </div><!-- /.grid_8 #content -->
-
-<?php get_sidebar(); ?>
+<div id="sidebar" class="span4">
+	<?php get_sidebar(); ?>
+</div>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

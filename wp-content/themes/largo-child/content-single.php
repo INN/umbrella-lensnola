@@ -42,6 +42,30 @@
  		</div>
 	</header><!-- / entry header -->
 
+	<?php 
+		function start_gcs() {
+			wp_enqueue_script( 'google_consumer_surveys_1', get_stylesheet_directory_uri() . '/js/gcs.js'); //?will dump js in <script>js</script>
+		}
+		if(showGCS()){
+$str = <<<'EOD'
+<script type="text/javascript">
+(function() {
+  var ARTICLE_URL = window.location.href;
+  var CONTENT_ID = 'everything';
+  document.write(
+    '<scr'+'ipt '+
+    'src="//survey.g.doubleclick.net/survey?site=6661257265414144'+
+    '&amp;url='+encodeURIComponent(ARTICLE_URL)+
+    (CONTENT_ID ? '&amp;cid='+encodeURIComponent(CONTENT_ID) : '')+
+    '&amp;random='+(new Date).getTime()+
+    '" type="text/javascript">'+'\x3C/scr'+'ipt>');
+})();
+</script>
+EOD;
+			echo $str;
+			echo '<div class="p402_premium">';
+		}
+	?>
 	<div class="entry-content clearfix">
 		<?php largo_entry_content( $post ); ?>
 
@@ -59,6 +83,17 @@
 			</div>
 		</div>
 	</div><!-- .entry-content -->
+	<?php 
+		if(showGCS()){
+			echo '</div>';
+$str = <<<'EOD'
+<script type="text/javascript"> 
+  try { _402_Show(); } catch(e) {} 
+</script>
+EOD;
+			echo $str;
+		}
+	?>
 
 	<footer class="post-meta bottom-meta">
 

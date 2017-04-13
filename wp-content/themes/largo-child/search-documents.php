@@ -33,7 +33,7 @@ get_header(); ?>
                 //html += '<span class="by-author">' + data.documents[i].source + '</span>';
                 var docdate = new Date (data.documents[i].created_at);
                 html += '<time class="entry-date updated dtstamp pubdate" datetime="' + data.documents[i].created_at + '">' + fullMonthNames[docdate.getMonth()] + ' ' + docdate.getDate() + ', ' + docdate.getFullYear() + '</time>';
-                html += '</div></div></article>';
+                html += '</div></div></article>'; 
             }
             if (data.page > 1 || data.total > 10) {
                 html += '<nav id="nav-below" class="pager post-nav">';
@@ -57,5 +57,7 @@ get_header(); ?>
 
             </div><!--/.grid_8 #content-->
 
+<div id="sidebar" class="span4">
 <?php get_sidebar(); ?>
+</div><!-- /.grid_4 -->
 <?php get_footer(); ?>
