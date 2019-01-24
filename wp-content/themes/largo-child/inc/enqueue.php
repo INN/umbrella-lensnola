@@ -33,7 +33,7 @@ add_action( 'wp_head', function() {
 <script type="text/javascript" src="//use.typekit.net/oct0mkd.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 EOF;
-}
+} );
 
 /**
  * Dynamic CSS classes for categories
