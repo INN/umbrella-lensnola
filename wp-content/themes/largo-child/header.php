@@ -31,55 +31,12 @@
 			echo ' | ' . 'Page ' . max( $paged, $page );
 	?>
 </title>
-<script type="text/javascript" src="//use.typekit.net/oct0mkd.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 <?php
-	wp_enqueue_style( 'largo-stylesheet', get_bloginfo( 'stylesheet_url' ) );
-	wp_enqueue_script( 'largo-modernizr', get_template_directory_uri() . '/js/modernizr.custom.js' );
-
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
-
 	wp_head();
 ?>
-
-<!-- Dynamic CSS classes for categories -->
-<style type="text/css">
-	.what-were-reading {
-		background-image:url('<?php echo home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png');?>');
-		background-repeat: no-repeat;
-		line-height: 19px;
-		padding: 2px 0 3px 25px;
-	}
-	.schools, .environment, .investigations, .criminal_justice {padding-top: 4px!important;}
-	.charterschools, .government-and-politics {padding-top: 3px!important;}
-	.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
-	.documents {
-		background-image:url('<?php echo home_url('/wp-content/themes/largo-child/images/icons/documents.png');?>');
-		background-position:  left top;
-		background-repeat: no-repeat;
-		line-height: 20px;
-		padding: 0 0 5px 30px;
-	}
-<?php
-	$categories = get_categories();
-	foreach ($categories as $category) {
-		if (file_exists('wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')) {
-			echo ".".$category->slug." {
-				background-image:url('".home_url('/wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')."');
-				background-position:  left top;
-				background-repeat: no-repeat;
-				line-height: 22px;
-				padding: 0 0 5px 30px;
-				}
-				";
-		}
-	}
-?>
-</style>
 
 </head>
 
@@ -118,31 +75,10 @@
     </div> <!-- /.global-nav -->
 </div> <!-- /.global-nav-bg -->
 
-<div id="ad-banner-container">
-	<div id="ad-banner" class="row-fluid clearfix">
-	    <?php if ( dynamic_sidebar('top_banner') ) :
-			  else : ?>
-		<?php endif; ?>
-	    <?php if ( dynamic_sidebar('top_text') ) :
-			  else : ?>
-		<?php endif; ?>
-	    <div class="clearfix"></div>
-	</div>
-</div>
 
 <div id="header-container">
 	<header id="site-header" class="row-fluid clearfix">
 		<?php largo_header(); ?>
-        <!-- <a href="<?php echo home_url('/');?>">
-        	<div id="logo"></div>
-        </a> -->
-        <div id="top_about_section">
-	        <?php if ( dynamic_sidebar('top_about_section') ) :
-				  else : ?>
-			<?php endif; ?>
-			<div class="clearfix"></div>
-		</div>
-        	<div class="clearfix"></div>
 	</header>
 
 	<header class="print-header">
@@ -229,15 +165,12 @@
 	  </div>
 	</nav>
 	<?php if ( of_get_option( 'show_dont_miss_menu') ) : ?>
-    <div id="secondary-nav-centered">
-		<nav id="secondary-nav" class="clearfix">
-	    	<div id="topics-bar" class="span12 hidden-phone">
-				<?php wp_nav_menu( array( 'theme_location' => 'dont-miss', 'container' => false, 'depth' => 1 ) ); ?>
-			</div>
-		</nav>
-    </div>
+	<nav id="secondary-nav" class="clearfix">
+		<div id="topics-bar" class="span12 hidden-phone">
+			<?php wp_nav_menu( array( 'theme_location' => 'dont-miss', 'container' => false, 'depth' => 1 ) ); ?>
+		</div>
+	</nav>
 	<?php endif; ?>
 </div>
 
 <div id="page" class="hfeed clearfix">
-	<div id="main" class="row-fluid clearfix">

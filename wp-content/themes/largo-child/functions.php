@@ -19,6 +19,7 @@ require_once( get_stylesheet_directory() . '/inc/post-tags.php' );
 
 // setup custom image sizes
 require_once( get_stylesheet_directory() . '/inc/images.php' );
+require_once( get_stylesheet_directory() . '/inc/header-footer.php' );
 
 function get_current_template( $echo = false ) {
     if( !isset( $GLOBALS['current_theme_template'] ) )
