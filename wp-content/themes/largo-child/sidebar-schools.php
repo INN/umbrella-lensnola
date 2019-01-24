@@ -3,8 +3,10 @@
  * The Sidebar containing the schools widget area.
  */
 ?>
-<div id="sidebar" class="span4">
-	<div class="widget-area" role="complementary">
-		<?php dynamic_sidebar( 'sidebar-schools' ); ?>
-	</div>
-</div>
+<div class="widget-area" role="complementary">
+	<?php
+		if ( ! dynamic_sidebar( 'sidebar-schools' ) ) :
+			
+		endif;
+	?>
+</div><!-- #main .widget-area -->

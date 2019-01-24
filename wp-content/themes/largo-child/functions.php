@@ -1,19 +1,24 @@
 <?php
+
+//ini_set('display_errors','On');
+//error_reporting(E_ALL);
 /**
- * Load up all of the stuff in the /inc directory
+ * Load up all of the other goodies in the /inc directory
  */
-$includes = array(
-	'/inc/widgets.php',
-	'/inc/sidebars.php',
-	'/inc/post-tags.php',
-	'/inc/images.php',
-	'/inc/enqueue.php'
-);
-foreach ( $includes as $include ) {
-	require_once( get_stylesheet_directory() . $include );
-}
+// register widgets
+require_once(get_stylesheet_directory() . '/inc/widgets.php' );
 
+// register sidebars
+require_once(get_stylesheet_directory() . '/inc/sidebars.php' );
 
+// enqueue our js and css files
+require_once( get_stylesheet_directory() . '/inc/enqueue.php' );
+
+// add some custom template tags (mostly used in single posts)
+require_once( get_stylesheet_directory() . '/inc/post-tags.php' );
+
+// setup custom image sizes
+require_once( get_stylesheet_directory() . '/inc/images.php' );
 
 function get_current_template( $echo = false ) {
     if( !isset( $GLOBALS['current_theme_template'] ) )
@@ -22,6 +27,12 @@ function get_current_template( $echo = false ) {
         echo $GLOBALS['current_theme_template'];
     else
         return $GLOBALS['current_theme_template'];
+}
+
+// Remove Links admin menu item
+add_action( 'admin_menu', 'my_remove_menu_pages' );
+function my_remove_menu_pages() {
+	remove_menu_page('link-manager.php');
 }
 
 // Configure CPT-onomies school taxonomy display as list, not autocomplete on post edit
@@ -48,7 +59,8 @@ function largo_child_rewrite_rules() {
    add_rewrite_rule( '^school/([^\/]+)/feed/?$','index.php?feed=feed&school=$matches[1]&cpt_onomy_archive=1', 'top' );
 }
 
-function largo_child_comments() {
+function largo_child_comments()
+{
 	if (get_comments_number() >= 1) {
 		echo '<a href="';
 		the_permalink();
@@ -58,7 +70,8 @@ function largo_child_comments() {
 	}
 }
 
-function largo_child_get_parents() {
+function largo_child_get_parents()
+{
 	$parents = array();
 	$args=array('orderby' => 'none');
 	$terms = wp_get_post_terms( get_the_ID() , 'category', $args);
@@ -69,7 +82,8 @@ function largo_child_get_parents() {
 	return $parents;
 }
 
-function largo_child_get_the_category() {
+function largo_child_get_the_category()
+{
 	$parents = largo_child_get_parents();
 
 	// If nothing, return first category from get_the_category (could be subcategory only)
@@ -89,7 +103,8 @@ function largo_child_get_the_category() {
 	return $parents[0];
 }
 
-function get_post_meta_all() {
+function get_post_meta_all()
+{
 	$meta = array();
 	if ( $keys = get_post_custom_keys() ) {
 	    foreach ( (array) $keys as $key ) {
@@ -104,7 +119,8 @@ function get_post_meta_all() {
 	return $meta;
 }
 
-function consume_meta($key,&$meta) {
+function consume_meta($key,&$meta)
+{
 	$value = $meta[$key];
 	unset($meta[$key]);
 	return $value;
@@ -137,6 +153,7 @@ function woocommerce_display_donation_input() {
 add_action('woocommerce_after_order_notes', 'my_custom_checkout_field');
 
 function my_custom_checkout_field($checkout) {
+	//echo '<input type="checkbox" id="recur_donate_checkbox" name="recurring_donation" style="float:left; position:relative; top:3px;"><label for="recur_donate_checkbox" style="margin:0 0 10px 50px;">Make this a <b>monthly</b> recurring donation</label>';
 	echo '<div id="recur_donate_checkbox" style="margin-top:80px;">';
 	woocommerce_form_field('recurring_donation', array(
 		'type' => 'checkbox',
@@ -152,6 +169,27 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
     if ($_POST['recurring_donation']) update_post_meta( $order_id, 'Recurring Donation', esc_attr($_POST['recurring_donation']));
 }
 
+ /**
+  * A helper function to determine if the site should display GCS for the page.
+  * As of June 2014, The Lens shows GCS on posts when the traffic comes from search
+  * @author  abram.handler@gmail.com
+  */
+function showGCS() {
+	if ( is_user_logged_in() ) {return False;}
+	$referredby = "";
+	if(isset($_SERVER['HTTP_REFERER'])) {
+		$referredby = strtolower($_SERVER['HTTP_REFERER']);
+		if ((strpos($referredby,'google') !== false) || (strpos($referredby,'yahoo') !== false) || (strpos($referredby,'nola.com') !== false) || (strpos($referredby,'bing') !== false) ) {
+			return True;
+		} 
+	}
+	else
+	{
+		return False;
+	}
+	return False;
+}
+
 function change_argo_rss_link($link) {
     $post_id = get_the_ID();
     if(get_post_type($post_id) == 'argolinks') {
@@ -161,36 +199,11 @@ function change_argo_rss_link($link) {
 }
 add_filter('the_permalink_rss','change_argo_rss_link');
 
-
-
-/**
- * Intended to override add_largo_mce_plugin().
- * 
- * Override $plugin_array['modulize'] set by Largo to a newer version 
- * of the script until Largo is upgraded. Necessary because of a 
- * WP core update of tinymce.
- * 
- * Changes to tinymce.js script can be seen here:
- * @see https://github.com/INN/Largo/commit/3a465b1bfab9b97c867f857f075dc5d44cb24866
- * 
- */
-function add_nola_mce_plugin( $plugin_array ) {
-
-	$plugin_array['modulize'] = get_stylesheet_directory_uri() . '/js/tinymce/plugins/largo/editor_plugin.js';
-	return $plugin_array;
-
+function change_argo_rss_desc($desc) {
+    $post_id = get_the_ID();
+    if(get_post_type($post_id) == 'argolinks') {
+         $desc = get_post_meta($post_id, "argo_link_description", true);
+    }
+   return $desc;
 }
-
-/**
- * Intended to extend largo_add_mce_buttons().
- * 
- * Register our hook in the appropriate place and time.
- * 
- */
-function nola_add_mce_buttons() {
-	if ( get_user_option( 'rich_editing' ) == 'true' ) {
-		add_filter( 'mce_external_plugins', 'add_nola_mce_plugin', 5 );
-	}
-}
-add_action( 'init', 'nola_add_mce_buttons' );
-
+add_filter('the_excerpt_rss', 'change_argo_rss_desc');

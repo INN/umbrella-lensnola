@@ -17,7 +17,7 @@ class largo_child_INN_RSS_widget extends WP_Widget {
 	function widget($args, $instance) {
 
 		extract($args);
-		$rss = fetch_feed('http://feeds.feedburner.com/INNMemberInvestigations');
+		$rss = fetch_feed('http://investigativenewsnetwork.org/all-member-news.rss');
 		$title = __('Stories From Other INN Members', 'largo');
 		$desc = __('View more recent stories from members of the Investigative News Network', 'largo');
 		$link = 'http://www.investigativenewsnetwork.org/';
@@ -80,7 +80,6 @@ function largo_child_widget_rss_output( $rss, $args = array() ) {
 			$desc = largo_child_trim_sentences($desc, 2);
 			$summary = "<p class='rssSummary'>$desc</p>";
 		} else {
-			$desc = '';
 			$summary = '';
 		}
 
@@ -100,7 +99,7 @@ function largo_child_widget_rss_output( $rss, $args = array() ) {
 		if ( $link == '' ) {
 			echo "<li><h5>$title</h5><p class=\"byline\">{$author} | {$date}</p>{$summary}</li>";
 		} else {
-			echo "<li><h5><a class='rsswidget' href='$link' title='$title'>$title</a></h5><p class=\"byline\">{$author} | {$date}</p>{$summary}</li>";
+			echo "<li><h5><a class='rsswidget' href='$link' title='$desc'>$title</a></h5><p class=\"byline\">{$author} | {$date}</p>{$summary}</li>";
 		}
 	}
 	echo '</ul>';

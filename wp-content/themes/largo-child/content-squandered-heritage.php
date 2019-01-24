@@ -18,9 +18,16 @@
 	</header><!-- / entry header -->
 
 	<div class="entry-content">
+    
 		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('home_right'); ?></a>
 		<?php largo_excerpt( $post, 2, true ); ?>
+        <?php if ( largo_has_categories_or_tags() ): ?>
+            <div class="post-meta bottom-meta">
+    			<!-- <h5><strong><?php _e('Filed under:', 'largo'); ?></strong> <?php largo_categories_and_tags(); ?></h5> -->
+            </div><!-- /.post-meta -->
+        <?php endif; ?>
+        <div class="clearfix"></div>
         <div class="byline"><?php largo_byline(true, false); ?><span class="small_comments">&nbsp;&nbsp;&nbsp;&nbsp;<?php largo_child_comments();?></span><?php edit_post_link( __('Edit This Post', 'largo'), ' <div class="edit-link">', '</div>'); ?></div>
 	</div><!-- .entry-content -->
-
+	
 </article><!-- #post-<?php the_ID(); ?> -->

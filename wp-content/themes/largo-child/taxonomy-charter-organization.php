@@ -11,6 +11,7 @@ if ( is_tax() || is_tag() || is_category() ) {
 }
 ?>
 
+
 		<div id="content" class="content-category stories span8" role="main">
 			<header class="category-background clearfix">
 				<h5 class="charterschools chartermain">
@@ -70,7 +71,9 @@ if ( is_tax() || is_tag() || is_category() ) {
 			</div>
 		</div>
 		<!-- /.grid_8 #content -->
+<div id="sidebar" class="span4">
+	<?php get_sidebar('schools'); ?>
+</div>
 
-<?php get_sidebar('schools'); ?>
-
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

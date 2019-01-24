@@ -3,7 +3,7 @@
  * The template for displaying Tag Archive pages.
  */
 
-get_header();
+get_header(); 
 
 if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_object();
 ?>
@@ -30,7 +30,9 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 				?>
 
 		</div>
-		<!-- #content -->
-
-<?php get_sidebar(); ?>
+		<!-- /.grid_8 #content -->
+<aside id="sidebar" class="span4">
+	<?php get_sidebar('topic'); ?>
+</aside>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

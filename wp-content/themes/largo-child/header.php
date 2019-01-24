@@ -14,7 +14,6 @@
 	// get the current page url (used for rel canonical and open graph tags)
 	global $current_url;
 	$current_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-	$childtheme_dir = get_stylesheet_directory_uri();
 ?>
 <title>
 	<?php
@@ -32,44 +31,118 @@
 			echo ' | ' . 'Page ' . max( $paged, $page );
 	?>
 </title>
+<script type="text/javascript" src="//use.typekit.net/oct0mkd.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
 <?php
+	wp_enqueue_style( 'largo-stylesheet', get_bloginfo( 'stylesheet_url' ) );
+	wp_enqueue_script( 'largo-modernizr', get_template_directory_uri() . '/js/modernizr.custom.js' );
+
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
 
 	wp_head();
 ?>
 
+<!-- Dynamic CSS classes for categories -->
+<style type="text/css">
+	.what-were-reading {
+		background-image:url('<?php echo home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png');?>');
+		background-repeat: no-repeat;
+		line-height: 19px;
+		padding: 2px 0 3px 25px;
+	}
+	.schools, .environment, .investigations, .criminal_justice {padding-top: 4px!important;}
+	.charterschools, .government-and-politics {padding-top: 3px!important;}
+	.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
+	.documents {
+		background-image:url('<?php echo home_url('/wp-content/themes/largo-child/images/icons/documents.png');?>');
+		background-position:  left top;
+		background-repeat: no-repeat;
+		line-height: 20px;
+		padding: 0 0 5px 30px;
+	}
+<?php
+	$categories = get_categories();
+	foreach ($categories as $category) {
+		if (file_exists('wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')) {
+			echo ".".$category->slug." {
+				background-image:url('".home_url('/wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')."');
+				background-position:  left top;
+				background-repeat: no-repeat;
+				line-height: 22px;
+				padding: 0 0 5px 30px;
+				}
+				";
+		}
+	}
+?>
+</style>
+
 </head>
 
 <body <?php body_class(); ?>>
+<div class="global-nav-bg">
+	<div class="global-nav">
+		<nav id="top-nav" class="span12">
+        	<span class="visuallyhidden">
+        		<a href="#main" title="Skip to content"><?php _e('Skip to content', 'largo'); ?></a>
+        	</span>
+        	<?php
+				$args = array(
+					'theme_location' => 'global-nav',
+					'depth'		 => 1,
+					'container'	 => false,
+				);
+				wp_nav_menu($args);
+			?>
+        	<div class="nav-right">
+        		<?php if ( of_get_option( 'show_donate_button') ) :
+        			largo_donate_button();
+        		endif; ?>
+
+				<div id="header-search">
+					<form class="form-search" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<div class="input-append">
+							<input type="text" placeholder="<?php _e('Search', 'largo'); ?>" class="input-medium appendedInputButton search-query" value="" name="s" /><button type="submit" class="search-submit btn"><?php _e('GO', 'largo'); ?></button>
+						</div>
+					</form>
+				</div>
+				<div class="org-logo">
+        			<a href="http://investigativenewsnetwork.org/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/inn-logo-80-55.jpg" height="55" alt="INN logo" /></a>
+				</div>
+        	</div>
+        </nav>
+    </div> <!-- /.global-nav -->
+</div> <!-- /.global-nav-bg -->
 
 <div id="ad-banner-container">
 	<div id="ad-banner" class="row-fluid clearfix">
-	    <?php
-	    	if ( is_active_sidebar ( 'top_banner' ) ) dynamic_sidebar( 'top_banner' );
-	    	if ( is_active_sidebar ( 'top_text' ) ) dynamic_sidebar( 'top_text' );
-	    ?>
+	    <?php if ( dynamic_sidebar('top_banner') ) :
+			  else : ?>
+		<?php endif; ?>
+	    <?php if ( dynamic_sidebar('top_text') ) :
+			  else : ?>
+		<?php endif; ?>
+	    <div class="clearfix"></div>
 	</div>
 </div>
 
 <div id="header-container">
 	<header id="site-header" class="row-fluid clearfix">
 		<?php largo_header(); ?>
+        <!-- <a href="<?php echo home_url('/');?>">
+        	<div id="logo"></div>
+        </a> -->
         <div id="top_about_section">
-	        <a href="/about-us/">About the Lens</a>
-	        <div id="social_media">
-				<a href="http://www.twitter.com/thelensnola" target="_blank"><img src="<?php echo $childtheme_dir; ?>/images/twitter_red_icon.png"></a>
-				<a href="http://www.facebook.com/thelensnola" target="_blank"><img src="<?php echo $childtheme_dir; ?>/images/fb_red_icon.png"></a>
-				<a href="http://thelensnola.org/feed/"><img src="<?php echo $childtheme_dir; ?>/images/rss_red_icon.png"></a>
-			</div>
-			<div id="call_to_action">
-				<a href="/about-us/contact-us/"><img src="<?php echo $childtheme_dir; ?>/images/send_tip_btn.png" /></a>
-				<a href="/get-involved"><img src="<?php echo $childtheme_dir; ?>/images/get_involved_btn.png" /></a>
-			</div>
+	        <?php if ( dynamic_sidebar('top_about_section') ) :
+				  else : ?>
+			<?php endif; ?>
+			<div class="clearfix"></div>
 		</div>
+        	<div class="clearfix"></div>
 	</header>
 
 	<header class="print-header">
@@ -91,6 +164,7 @@
 		        <span class="icon-bar"></span>
 	        </div>
 	      </a>
+
 	      <ul class="nav hidden-phone">
 	        <?php
 				$args = array(

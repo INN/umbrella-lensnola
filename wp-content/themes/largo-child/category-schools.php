@@ -3,7 +3,7 @@
  * The template for displaying Schools Archive pages.
  */
 
-get_header();
+get_header(); 
 
 if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_object();
 ?>
@@ -19,19 +19,19 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 						echo '<div class="category-description">' . $category_description . '</div>';
 				?>
 			</header> <!-- /.category-background -->
-
+			
 			<?php if($paged < 2):?>
 				<div class="content-top clearfix">
-
+					
 					<div class="category-featured">
-						<?php
+						<?php 
 						$args = array(
 									'category_name' => 'schools',
 									'posts_per_page'=> 3,
 									'post__not_in' 	=> $ids
 									);
 						$wp_query = new WP_Query( $args );
-
+	
 						if ( $wp_query->have_posts() ) {
 							while ( $wp_query->have_posts() ) : $wp_query->the_post();
 								//if the post is in the array of post IDs already on this page, skip it
@@ -46,14 +46,14 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 							get_template_part( 'content', 'not-found' );
 						} ?>
 					</div>
-
+					
 					<div class="subcategory-featured sub-stories" id="csrc">
 						<header>
 							<h5 class="charterschools">
 								<a href="<?php echo home_url('/charterschools');?>">Charter School Reporting Corps</a>
 							</h5>
 						</header>
-
+						
 						<?php $substories = largo_get_featured_posts( array(
 							'tax_query' => array(
 								array(
@@ -72,14 +72,14 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 										<header>
 									 		<h3><a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 										</header><!-- / entry header -->
-
+									
 										<div class="entry-content">
 									        <span class="byline"><?php largo_byline(); ?><span class="smaller_byline_comments">&nbsp;&nbsp;&nbsp;&nbsp;<?php largo_child_comments();?></span><?php edit_post_link( __('Edit This Post', 'largo'), ' <div class="edit-link">', '</div>'); ?></span>
 										</div><!-- .entry-content -->
 									</div>
 							<?php endwhile;
 						endif; // end more featured posts ?>
-
+						
 						<div class="charter-coverage-link"><span class="directive">&gt;</span> <a href="<?php echo home_url('/charterschools');?>">Complete Charter Schools Coverage</a></div>
 					</div>
 				</div>
@@ -87,8 +87,8 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 
 			<div class="content-main">
             	<?php if ($paged < 2):?> <hr class="schoolmain" /> <?php endif;?>
-
-            	<?php
+            	
+            	<?php 
 					$args = array(
 								'category_name' => 'schools',
 								'posts_per_page'=> ($paged<2) ? 5 : 10,
@@ -114,6 +114,9 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 			</div>
 		</div>
 		<!-- /.grid_8 #content -->
+<div id="sidebar" class="span4">
+	<?php get_sidebar(); ?>
+</div>
 
-<?php get_sidebar(); ?>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

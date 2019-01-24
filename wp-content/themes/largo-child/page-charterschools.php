@@ -18,7 +18,7 @@ get_header(); ?>
 		<?php
 			$args = array(
 				'category_name' => 'charterschools',
-				'posts_per_page'=> 10,
+				'posts_per_page'=> 4,
 				'post__not_in' 	=> $ids,
 				'paged'			=> $paged
 				);
@@ -40,6 +40,8 @@ get_header(); ?>
 			} ?>
 	</div>
 </div><!-- /.grid_8 #content -->
-
-<?php get_sidebar('schools'); ?>
+<div id="sidebar" class="span4">
+	<?php get_sidebar('schools'); ?>
+</div>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>

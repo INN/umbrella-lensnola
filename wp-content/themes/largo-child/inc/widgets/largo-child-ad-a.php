@@ -1,39 +1,39 @@
 <?php
 /*
- * Largo recent-comments Widget
+ * Largo ad testimonials Widget
  */
 
-class largo_child_recent_comments_widget extends WP_Widget {
+class largo_child_ad_testimonials_widget extends WP_Widget {
 
 	/**
 	 * Widget setup.
 	 */
-	function largo_child_recent_comments_widget() {
+	function largo_child_ad_testimonials_widget() {
 		/* Widget settings. */
 		$widget_ops = array(
-			'classname' 	=> 'largo-recent-comments',
-			'description' 	=> __('Show recent comments', 'largo'),
+			'classname' 	=> 'largo-child-ad-testimonials',
+			'description' 	=> __('Show ad testimonials', 'largo'),
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-recent-comments-widget', __('Largo Child Recent Comments', 'largo'), $widget_ops );
-		$this->alt_option_name = 'largo_recent_comments';
+		$this->WP_Widget( 'largo-child-ad-testimonials-widget', __('Largo Child Ad Testimonials', 'largo'), $widget_ops );
+		$this->alt_option_name = 'largo_child_ad_testimonials';
 
-		add_action( 'comment_post', array(&$this, 'flush_widget_cache') );
-		add_action( 'transition_comment_status', array(&$this, 'flush_widget_cache') );
+		add_action( 'ad_testimonial_post', array(&$this, 'flush_widget_cache') );
+		add_action( 'transition_ad_testimonial_status', array(&$this, 'flush_widget_cache') );
 	}
 
 	function flush_widget_cache() {
-		wp_cache_delete('largo_recent_comments', 'widget');
+		wp_cache_delete('largo_child_ad_testimonials', 'widget');
 	}
 
 	/**
 	 * How to display the widget on the screen.
 	 */
 	function widget( $args, $instance ) {
-		global $comments, $comment;
+		global $adtestimonials, $adtestimonial;
 
-		$cache = wp_cache_get('widget_recent_comments', 'widget');
+		$cache = wp_cache_get('widget_ad_testimonial', 'widget');
 
 		if ( ! is_array( $cache ) )
 			$cache = array();
@@ -51,9 +51,9 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title'] );
 
 		if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) )
- 			$number = 5;
+ 			$number = 1;
 
-		$comments = get_comments( apply_filters( 'widget_comments_args', array( 'number' => $number, 'status' => 'approve', 'post_status' => 'publish' ) ) );
+		$adtestimonials = get_posts( apply_filters( 'widget_ad_testimonials_args', array( 'showposts' => $number, 'status' => 'approve', 'post_status' => 'publish', 'post_type' => 'topbox', 'orderby' => 'rand' ) ) );
 
 		$widget_class = !empty($instance['widget_class']) ? $instance['widget_class'] : '';
 		if ($instance['hidden_desktop'] === 1)
@@ -71,25 +71,24 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		}
 
 		$output .= $before_widget;
-				$output .= '<div class="right_sidebar_content">';
 		if ( $title )
 			$output .= $before_title . $title . $after_title;
-		$output .= '<ul id="recentcomments">';
-		if ( $comments ) {
-			foreach ( (array) $comments as $comment) {
-				$output .=  '<li class="recentcomments">';
-				$output .= '<p class="comment-excerpt"><a href="'.get_comment_link().'">' . get_comment_excerpt() . '<hr style="display: block; height: 1px; border: 0; border-top: 1px solid #cfd0cf; margin: 7px 0; width: 15%"></a></p>';
-				$output .= '</li>';
-				$output .= '';
+
+		if ( $adtestimonials ) {
+			foreach ( (array) $adtestimonials as $adtestimonial) {	
+				$output .= '<div class="testimonial_content">';
+				$output .=  $adtestimonial->post_content;
+				$output .= '</div>';
+				$output .= '<div class="testimonial_author">';
+				$output .=  $adtestimonial->post_title;
+				$output .= '</div>';
 			}
  		}
-		$output .= '</ul>';
-		$output .= '</div>';
 		$output .= $after_widget;
 
 		echo $output;
 		$cache[$args['widget_id']] = $output;
-		wp_cache_set('widget_recent_comments', $cache, 'widget');
+		wp_cache_set('widget_ad_testimonials', $cache, 'widget');
 	}
 
 	/**
@@ -102,8 +101,8 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		$this->flush_widget_cache();
 
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['largo_recent_comments']) )
-			delete_option('largo_recent_comments');
+		if ( isset($alloptions['largo_child_ad_testimonials']) )
+			delete_option('largo_child_ad_testimonials');
 
 		$instance['widget_class'] = $new_instance['widget_class'];
 		$instance['hidden_desktop'] = $new_instance['hidden_desktop'] ? 1 : 0;
@@ -120,7 +119,7 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		/* Set up some default widget settings. */
 		$defaults = array(
 			'title' 			=> '',
-			'number'			=> 5,
+			'number'			=> 1,
 			'widget_class' 		=> 'default',
 			'hidden_desktop' 	=> '',
 			'hidden_tablet' 	=> '',
@@ -141,7 +140,7 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of comments to show:', 'largo'); ?></label>
+			<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of ad testimonials to show:', 'largo'); ?></label>
 		<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 		</p>
 

@@ -3,7 +3,7 @@
 Template Name: Page (Custom Menu)
 */
 
-get_header();
+get_header(); 
 
 ?>
 
@@ -19,7 +19,7 @@ get_header();
 						'theme_location' => 'subcategory-featured',
 						'walker'	 => new Bootstrap_Walker_Nav_Menu()
 					);?>
-
+	
 	<?php if($sub_nav_menu = wp_nav_menu($args)):?>
 		<div class="subcategory-featured">
 			<ul>
@@ -31,6 +31,8 @@ get_header();
 	<?php get_template_part( 'content', 'page' ); ?>
 
 </div><!-- /.grid_8 #content -->
-
+<aside id="sidebar" class="span4">
 <?php get_sidebar(); ?>
+</aside>
+<!-- /.grid_4 -->
 <?php get_footer(); ?>
