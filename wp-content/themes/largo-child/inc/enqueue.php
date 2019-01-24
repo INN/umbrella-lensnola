@@ -39,8 +39,7 @@ EOF;
  * Dynamic CSS classes for categories
  */
 function largo_child_categories_css() {
-	printf(
-		<<<EOF
+		$heredoc = <<<EOF
 		<style type="text/css">
 			.what-were-reading {
 				background-image:url('%1$s');
@@ -59,7 +58,8 @@ function largo_child_categories_css() {
 				padding: 0 0 5px 30px;
 			}
 EOF;
-		, // ugh, sorry. There can't be anything after the ; so this goes on its own line
+	printf(
+		$heredoc,
 		home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png'),
 		home_url('/wp-content/themes/largo-child/images/icons/documents.png')
 	);
