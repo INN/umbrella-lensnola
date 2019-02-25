@@ -20,10 +20,7 @@ add_action( 'wp_enqueue_scripts', 'largo_child_enqueue_js' );
  * Fonts!
  */
 add_action( 'wp_head', function() {
-	echo <<<EOF
-<script type="text/javascript" src="//use.typekit.net/oct0mkd.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-EOF;
+	echo '<link rel="stylesheet" type="text/css" href="https://use.typekit.net/oct0mkd.css" />';
 } );
 
 /**
