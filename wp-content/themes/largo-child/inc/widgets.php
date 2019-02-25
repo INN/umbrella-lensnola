@@ -31,7 +31,6 @@ require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-find-school
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-recent-comments.php' );
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-most-popular.php' );
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-mailchimp.php' );
-require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-inn-rss.php' );
 
 // and then register them
 function largo_child_load_widgets() {
@@ -44,6 +43,5 @@ function largo_child_load_widgets() {
     register_widget( 'largo_child_recent_comments_widget' );
     register_widget( 'largo_child_most_popular' );
     register_widget( 'largo_child_mailchimp' );
-    register_widget( 'largo_child_INN_RSS_widget' );
 }
 add_action( 'widgets_init', 'largo_child_load_widgets' );
