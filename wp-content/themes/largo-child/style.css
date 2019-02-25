@@ -537,13 +537,6 @@ h5 a,
 	font-weight: normal;
 	}
 
-#homepage-featured #homepage-slider {
-	width:58% !important;
-	  border-right: 1px solid #BABCBE!important;
-}
-
-.homebottom_left h5, .homebottom_right h5 {}
-
 #homepage-featured .sub-stories .story:last-child .entry-content,
 .homebottom_left .post:last-child .entry-content,
 .homebottom_right .post:last-child .entry-content,
@@ -1484,11 +1477,6 @@ p.wpsc_email_address_p input,
 	.carousel-control.left, .carousel-control.right {top: 0!important;}
 
 	#homepage-featured {width: 100%;}
-
-	#homepage-featured #homepage-slider {
-		width: 100%!important;
-		border: none!important;
-	}
 
 	#homepage-featured .top-story, #homepage-featured .sub-stories {
 		clear: both;
