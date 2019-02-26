@@ -443,13 +443,6 @@ p.wp-caption-text {
   *zoom: 1;
 }
 
-.carousel .next,
-.carousel .prev {
-  position: absolute;
-  top: -20px!important;
-  width: 100%;
-}
-
 .directive {
 	font-size:.7em;
 	vertical-align:top;
@@ -517,8 +510,7 @@ article.story {
 h5,
 h5 a,
 .stories h3,
-.entry-content h4,
-.carousel header {
+.entry-content h4 {
   font-size: 20px;
   font-weight: normal;
   color: #B43018;
@@ -536,13 +528,6 @@ h5 a,
 	font-size: 16px!important;
 	font-weight: normal;
 	}
-
-#homepage-featured #homepage-slider {
-	width:58% !important;
-	  border-right: 1px solid #BABCBE!important;
-}
-
-.homebottom_left h5, .homebottom_right h5 {}
 
 #homepage-featured .sub-stories .story:last-child .entry-content,
 .homebottom_left .post:last-child .entry-content,
@@ -569,11 +554,9 @@ h5 a,
   border-bottom: none;
 }
 #homepage-featured .sub-stories h5,
-#homepage-featured .carousel header h5,
 .subcategory-featured header h5,
 header.category-background h5,
 #homepage-featured .sub-stories h5 a,
-#homepage-featured .carousel header h5 a,
 .subcategory-featured header h5 a,
 header.category-background h5 a, header.search-header h5 a {
   font-size: 13px;
@@ -917,12 +900,6 @@ article img.attachment-category {
   float: left;
   max-width: 25%;
   margin: 0 20px 10px 0;
-}
-
-article img.attachment-home_left,
-article img.attachment-home_right {
-	float: left;
-  	margin: 0 20px 10px 0;
 }
 
 img.school_thumbnail {width:400px !important; height:auto !important; margin-bottom: 5px;}
@@ -1480,15 +1457,7 @@ p.wpsc_email_address_p input,
 		margin: 0 0 24px;
 	}
 
-	.carousel-caption {width: 100%;}
-	.carousel-control.left, .carousel-control.right {top: 0!important;}
-
 	#homepage-featured {width: 100%;}
-
-	#homepage-featured #homepage-slider {
-		width: 100%!important;
-		border: none!important;
-	}
 
 	#homepage-featured .top-story, #homepage-featured .sub-stories {
 		clear: both;
@@ -1555,8 +1524,7 @@ p.wpsc_email_address_p input,
 		line-height: 1.5;
 	}
 	.stories h2.entry-title,
-	.sticky-main-feature h2,
-	.carousel-caption h2 {
+	.sticky-main-feature h2 {
 		font-size: 24px;
 	}
 
