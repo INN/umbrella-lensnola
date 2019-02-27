@@ -2,14 +2,24 @@
 
 #site-header {
   margin: 0 auto;
-  max-width: 1170px;
 }
 
-.global-nav-bg {
-  display: none;
-}
+@supports ( left: -2%) and ( width: 100vw ) {
+  #site-header,
+  #main-nav,
+  #secondary-nav {
+    width: 100vw;
+    position: relative;
+    left: -2%;
+  }
 
-.header_img {margin-bottom:-17px !important;} // this is how the header image overlies the main nav
+  #topics-bar,
+  .navbar-inner .container {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 
 #sponsor {float: left; width:65%;}
@@ -18,13 +28,33 @@
 .testimonial_content {font-family: @sans; font-size: 14px;}
 .testimonial_author {font-style:italic; padding:5px 0 0 10px; display:none;}
 
-#site-header img {
+#site-header .header_img {
   float: left;
   clear: none;
-  margin: 25px 0 0 75px;
+  margin-top: 25px;
+  margin-right: 0;
+  margin-bottom:-17px !important; // this is how the header image overlies the main nav
+  margin-left: 75px;
   position: relative;
   z-index: 1;
 }
+
+.navbar {
+  font-family: @sans;
+  margin-bottom: 0;
+}
+.navbar-inner {
+  background-color: #a7a199;
+  background-image: -moz-linear-gradient(top, #595953, #a7a199);
+  background-image: -ms-linear-gradient(top, #595953, #a7a199);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#595953), to(#a7a199));
+  background-image: -webkit-linear-gradient(top, #595953, #a7a199);
+  background-image: -o-linear-gradient(top, #595953, #a7a199);
+  background-image: linear-gradient(top, #595953, #a7a199);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#595953', endColorstr='#a7a199', GradientType=0);
+}
+
 @media (max-width: 1120px) {
   .navbar .btn-navbar:hover {
     background-color: @textBody;
