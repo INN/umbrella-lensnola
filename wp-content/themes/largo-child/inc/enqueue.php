@@ -15,11 +15,11 @@ function largo_enqueue_child_theme_css() {
 	wp_enqueue_style(
 		'largo-child-styles',
 		get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css',
-		array(),
+		array( 'largo-stylesheet' ),
 		filemtime( get_stylesheet_directory() . '/css/style' . $suffix . '.css' )
 	);
 }
-add_action( 'wp_enqueue_scripts', 'largo_enqueue_child_theme_css' );
+add_action( 'wp_enqueue_scripts', 'largo_enqueue_child_theme_css', 0, 20 );
 
 /**
  * Enqueue all of our javascript and css files
