@@ -1,0 +1,103 @@
+/* E-Commerce Overwrite Styles (WP E-commerce and WooCommerce)*/
+
+.woocommerce table.cart a.remove {
+  padding-bottom:2px;
+  color:#B43018 !important;
+}
+.woocommerce table.cart a.remove:hover {
+  background-color:#B43018 !important;
+    color:#FFFFFF !important;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product
+{
+  border-bottom:1px solid #CCCCCC;
+  padding:10px 0 25px 0 !important;
+  margin-bottom:0px !important;
+
+}
+.woocommerce ul.products li.product .short-description {color:#A6A6A6; min-height:185px;}
+.woocommerce ul.products li.product .short-description p {font-size:12px;}
+
+.gocheckout{
+  background: #595953;
+  color:#FFFFFF !important;
+  padding: 3px 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius:4px;
+  border-radius: 4px;
+  margin-right: 20px;
+  font-weight:bold;
+  font-size: 15px;
+
+  left:23px;
+  position:relative;
+  top:4px;
+}
+.wpsc_checkout_table tr {
+  height:45px;
+}
+
+.wpsc_checkout_table td input,
+.wpsc_checkout_table td textarea,
+.wpsc_checkout_table td select,
+p.wpsc_email_address_p input,
+.woocommerce input,
+.woocommerce textarea,
+.woocommerce select,
+#donation_price_38107,
+.adjustform.qty input[type="text"] {
+  border: 1px solid #BBBBBB;
+  height:auto;
+}
+.adjustform.qty input[type="text"] {width:30%;}
+.empty{display:none;}
+.wpsc_buy_button{margin-top:-240px;}
+.default_product_display{height:230px;}
+.prodtitle{font-size:34px;}
+
+/*.woocommerce li {text-align:center;}
+.woocommerce h3, .woocommerce .short-description {text-align:left;}*/
+.woocommerce li form {margin:0; padding:0;}
+.woocommerce span.price {margin-bottom:0.5em; height:24px; margin-top:-5px;}
+.woocommerce span.price:before, .woocommerce span.price:after {content: " "; display: table;}
+.woocommerce span.price:after {clear: both;}
+.woocommerce div.donation {margin-bottom:0.5em; height:24px; margin-top:-5px;}
+.woocommerce .donation label {display:inline;}
+.woocommerce .donation input {width:80%;}
+.woocommerce li form button.button.alt {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F7F6F7), to(#DFDBDF)); /* for webkit browsers */
+  background: -moz-linear-gradient(center top , #F7F6F7 0%, #DFDBDF 100%) repeat scroll 0 0 transparent!important;
+  border: 1px solid #C7C0C7;
+  border-radius: 2px 2px 2px 2px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.075) inset, 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #5E5E5E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: bold;
+  left: auto;
+  line-height: 1em;
+  margin: 0;
+  overflow: visible;
+  padding: 6px 10px;
+  position: relative;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+.woocommerce li form button.button.alt:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F7F6F7), to(#D3CED3)); /* for webkit browsers */
+  background: -moz-linear-gradient(center top , #F7F6F7 0%, #D3CED3 100%) repeat scroll 0 0 transparent;
+  color: #5E5E5E;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .woocommerce ul.products li.product .short-description {color:#A6A6A6; min-height: inherit;}
+  .woocommerce table.shop_table, .woocommerce-page table.shop_table{font-size: 85%;}
+}
+/* End WP E-Commerce Overwrite Styles */

@@ -1,4 +1,25 @@
 <?php
+/**
+ * Functions related to enqueueing stylesheets and scripts and other assets
+ */
+
+/**
+ * Enqueue Largo child theme CSS
+ *
+ * This replaces Largo's funciton for doing so.
+ *
+ * @link https://github.com/INN/largo/blob/v0.6.1/inc/enqueue.php#L103-L123
+ */
+function largo_enqueue_child_theme_css() {
+	$suffix = (LARGO_DEBUG)? '' : '.min';
+	wp_enqueue_style(
+		'largo-child-styles',
+		get_stylesheet_directory_uri() . '/css/style' . $suffix . '.css',
+		array( 'largo-stylesheet' ),
+		filemtime( get_stylesheet_directory() . '/css/style' . $suffix . '.css' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'largo_enqueue_child_theme_css', 0, 20 );
 
 /**
  * Enqueue all of our javascript and css files
