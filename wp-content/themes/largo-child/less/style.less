@@ -1,6 +1,7 @@
 @import (reference) 'variables.less';
 @import "woocommerce.less";
 @import "header.less";
+@import "breakout.less";
 
 body {
   font-family: @serif;
@@ -54,17 +55,11 @@ blockquote {
 }
 
 
-p:first-child:before {content:open-quote; font-family: @sans; color:#999999; font-size:100pt; line-height:1; margin-left:-7%; float:left;}
-p:last-child:after {content:close-quote;}
+blockquote {
+  p:first-child:before {content:open-quote; font-family: @sans; color:#999999; font-size:100pt; line-height:1; margin-left:-7%; float:left;}
+  p:last-child:after {content:close-quote;}
+}
 
-
-.breakout {background-color: #F2F1EC; font-family:  @sans; float:left;}
-.breakout p {display:none;}
-.breakout table {border: none; float:left; margin:10px 0; width:50%;}
-.breakout td{border:none; padding:2%; vertical-align:middle; height:40px;}
-.breakout .number {color:#B43018; font-size:42px; vertical-align: middle; padding-left:8%; white-space: nowrap;}
-.breakout .text {font-size:18px; line-height:20px; padding-left:5%;}
-.breakout .num_border {border-left: 1px solid black;}
 
 #popout-box {
     color: #000000;
@@ -946,15 +941,10 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 }
 
 @media (max-width:979px) {
-  .breakout {float:none;}
-  .breakout table {float:none; border: none; margin:10px 0; width:100%;}
-  .breakout .num_border {border-left:none;}
   #recur_donate_checkbox{margin-top: 100px!important;}
 }
 
 @media (max-width: 768px) {
-  .breakout .number {font-size:33px;}
-  .breakout .text {font-size:17px;}
 
   #popout-box {width:200px;}
 

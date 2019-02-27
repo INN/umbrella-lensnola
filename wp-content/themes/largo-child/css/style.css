@@ -228,6 +228,63 @@ p.wpsc_email_address_p input,
     min-width: auto;
   }
 }
+.breakout {
+  background-color: #F2F1EC;
+  font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
+  float: left;
+}
+.breakout p {
+  display: none;
+}
+.breakout table {
+  border: none;
+  float: left;
+  margin: 10px 0;
+  width: 50%;
+}
+.breakout td {
+  border: none;
+  padding: 2%;
+  vertical-align: middle;
+  height: 40px;
+}
+.breakout .number {
+  color: #B43018;
+  font-size: 42px;
+  vertical-align: middle;
+  padding-left: 8%;
+  white-space: nowrap;
+}
+.breakout .text {
+  font-size: 18px;
+  line-height: 20px;
+  padding-left: 5%;
+}
+.breakout .num_border {
+  border-left: 1px solid black;
+}
+@media (max-width: 979px) {
+  .breakout {
+    float: none;
+  }
+  .breakout table {
+    float: none;
+    border: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  .breakout .num_border {
+    border-left: none;
+  }
+}
+@media (max-width: 768px) {
+  .breakout .number {
+    font-size: 33px;
+  }
+  .breakout .text {
+    font-size: 17px;
+  }
+}
 body {
   font-family: "minion-pro", Georgia, "Times New Roman", Times, serif;
   color: #333;
@@ -279,7 +336,7 @@ blockquote {
 blockquote p {
   margin-left: 7%;
 }
-p:first-child:before {
+blockquote p:first-child:before {
   content: open-quote;
   font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
   color: #999999;
@@ -288,43 +345,8 @@ p:first-child:before {
   margin-left: -7%;
   float: left;
 }
-p:last-child:after {
+blockquote p:last-child:after {
   content: close-quote;
-}
-.breakout {
-  background-color: #F2F1EC;
-  font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
-  float: left;
-}
-.breakout p {
-  display: none;
-}
-.breakout table {
-  border: none;
-  float: left;
-  margin: 10px 0;
-  width: 50%;
-}
-.breakout td {
-  border: none;
-  padding: 2%;
-  vertical-align: middle;
-  height: 40px;
-}
-.breakout .number {
-  color: #B43018;
-  font-size: 42px;
-  vertical-align: middle;
-  padding-left: 8%;
-  white-space: nowrap;
-}
-.breakout .text {
-  font-size: 18px;
-  line-height: 20px;
-  padding-left: 5%;
-}
-.breakout .num_border {
-  border-left: 1px solid black;
 }
 #popout-box {
   color: #000000;
@@ -1442,29 +1464,11 @@ img.school_thumbnail {
   }
 }
 @media (max-width: 979px) {
-  .breakout {
-    float: none;
-  }
-  .breakout table {
-    float: none;
-    border: none;
-    margin: 10px 0;
-    width: 100%;
-  }
-  .breakout .num_border {
-    border-left: none;
-  }
   #recur_donate_checkbox {
     margin-top: 100px!important;
   }
 }
 @media (max-width: 768px) {
-  .breakout .number {
-    font-size: 33px;
-  }
-  .breakout .text {
-    font-size: 17px;
-  }
   #popout-box {
     width: 200px;
   }
