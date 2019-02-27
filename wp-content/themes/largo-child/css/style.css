@@ -285,6 +285,12 @@ p.wpsc_email_address_p input,
     font-size: 17px;
   }
 }
+/**
+ * Specific widgets
+ */
+#widget-squandered {
+  font-stye: italic;
+}
 body {
   font-family: "minion-pro", Georgia, "Times New Roman", Times, serif;
   color: #333;

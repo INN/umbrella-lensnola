@@ -19,9 +19,6 @@ get_header(); ?>
 		<div id="sidebar" class="span4">
 			<?php get_sidebar('single'); ?>
 			
-			<?php if ( in_category( 'squandered-heritage-vintage' )): ?>
-				<aside class="widget single"><em>This story was originally published on Squandered Heritage, the blog that Karen Gadbois created to track threatened historic houses in New Orleans. That work led to the <a href="<?php echo home_url('/about-us');?>" title="About The Lens">founding of The Lens in 2009</a>. We&#8217;ve moved all of those early stories to The Lens, including this one. You also can read her <a href="<?php echo home_url('/hbos-treme-spotlights-lens-founder-karen-gadbois');?>" title="Best of Squandered Heritage 2006-2010">best stories from 2006 to 2010</a> and <a href="<?php echo home_url('/squandered-heritage-archives');?>" title="Squandered Heritage 2006-2010 Archives">browse the archives from that time</a>. Gadbois continues to <a href="<?php echo home_url('/category/squandered-heritage');?>">cover land use and historic preservation</a> for The Lens.</em></aside>
-			<?php endif; ?>
 		</div><!-- /.grid_4 -->
 		
 <!-- BEGIN SLIDING POP OUT --> 
