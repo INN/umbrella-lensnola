@@ -1,0 +1,50 @@
+// Customizations pertaining to the header
+
+#site-header {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.global-nav-bg {
+  display: none;
+}
+
+.header_img {margin-bottom:-17px !important;} // this is how the header image overlies the main nav
+
+
+#sponsor {float: left; width:65%;}
+#top_comments {float:right; color: #FFFFFF; max-width: 26%; font-size:14px; background: #595953; min-height: 100%;}
+#top_comments a {color: #FFFFFF;text-decoration:none;}
+.testimonial_content {font-family: @sans; font-size: 14px;}
+.testimonial_author {font-style:italic; padding:5px 0 0 10px; display:none;}
+
+#site-header img {
+  float: left;
+  clear: none;
+  margin: 25px 0 0 75px;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1120px) {
+  .navbar .btn-navbar:hover {
+    background-color: @textBody;
+    color: #fff;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+    background-position: -100px 0;
+  }
+  .navbar .btn-navbar:hover .label {
+    color: #fff;
+  }
+  .navbar .btn-navbar:hover .icon-bar {
+    background-color: #fff;
+  }
+}
+@media (max-width: 768px) {
+  #ad-banner-container, .navbar, .footer-bg {
+    min-width:auto;
+  }
+}
