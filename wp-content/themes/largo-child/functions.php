@@ -1,25 +1,28 @@
 <?php
 
-//ini_set('display_errors','On');
-//error_reporting(E_ALL);
+
+if ( ! defined( 'INN_MEMBER' ) )
+	define( 'INN_MEMBER', TRUE || INN_HOSTED );
+
 /**
  * Load up all of the other goodies in the /inc directory
+ *
+ * @see for more information about the formatting of this, see https://github.com/INN/largo/issues/1494
  */
-// register widgets
-require_once(get_stylesheet_directory() . '/inc/widgets.php' );
-
-// register sidebars
-require_once(get_stylesheet_directory() . '/inc/sidebars.php' );
-
-// enqueue our js and css files
-require_once( get_stylesheet_directory() . '/inc/enqueue.php' );
-
-// add some custom template tags (mostly used in single posts)
-require_once( get_stylesheet_directory() . '/inc/post-tags.php' );
-
-// setup custom image sizes
-require_once( get_stylesheet_directory() . '/inc/images.php' );
-require_once( get_stylesheet_directory() . '/inc/header-footer.php' );
+$includes = array(
+	'/inc/widgets.php',
+	'/inc/sidebars.php',
+	'/inc/enqueue.php',
+	'/inc/post-tags.php',
+	'/inc/images.php',
+	'/inc/header-footer.php',
+	'/inc/floating-donate-box.php',
+);
+foreach ( $includes as $include ) {
+	if ( 0 === validate_file( get_stylesheet_directory() . $include ) ) {
+		require_once( get_stylesheet_directory() . $include );
+	}
+}
 
 function get_current_template( $echo = false ) {
     if( !isset( $GLOBALS['current_theme_template'] ) )
