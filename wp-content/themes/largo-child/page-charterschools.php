@@ -1,15 +1,26 @@
 <?php
 /*
  * Template Name: Charter Schools
+ * Description: Shows the Charter Schools archive and Schools sidebar in a two-column layout.
  */
 
-get_header();
 global $shown_ids;
+
+add_filter('body_class', function($classes) {
+	$classes[] = 'classic';
+	return $classes;
+});
+
+get_header();
 ?>
 
 <div id="content" class="content-page span8" role="main">
-	<?php the_post(); ?>
-	<?php get_template_part( 'partials/content', 'page' ); ?>
+	<?php
+		while ( have_posts() ) : the_post();
+			$shown_ids[] = get_the_ID();
+			get_template_part( 'partials/content-page' );
+		endwhile;
+	?>
 
 	<div class="content-category stories">
 		<header class="category-background clearfix">

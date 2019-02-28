@@ -121,17 +121,17 @@ add_action( 'largo_before_category_river', 'lens_sidebar_csrc' );
 
 /**
  * Page navigation
+ *
+ * Applies to pages using page.php
  */
 function lens_sidebar_page_nav() {
-	echo '<h1>largo_after_hero</h1>';
-
 	if ( ! is_page() ) {
 		return;
 	}
 	$args = array(
 		'child_of' => ($post->post_parent) ? $post->post_parent : $post->ID,
 		'title_li' => '',
-		'echo' => false
+		'echo' => false,
 	);
 	$sub_nav_menu = wp_list_pages( $args );
 	
@@ -145,7 +145,40 @@ function lens_sidebar_page_nav() {
 		<?php
 	}
 }
-add_action( 'largo_after_hero', 'lens_sidebar_page_nav' );
+
+/**
+ * Custom page navigation, for when a page needs a menu other than the default menu
+ *
+ * Implemented on pages that use the page-custom-menu.php template
+ */
+function lens_sidebar_page_nav_custom() {
+	if ( ! is_page() ) {
+		return;
+	}
+	$args = array(
+		'menu'           => $post->post_name.'-navigation',
+		'depth'          => 0,
+		'container'      => false,
+		'items_wrap'     => '%3$s',
+		'menu_class'     => 'nav',
+		'echo'           => false,
+		'fallback_cb'    => false,
+		'theme_location' => 'subcategory-featured',
+		'walker'         => new Bootstrap_Walker_Nav_Menu(),
+		'echo'           => false,
+	);
+	$sub_nav_menu = wp_list_pages( $args );
+	
+	if ( ! empty( $sub_nav_menu ) ) {
+		?>
+			<div class="subcategory-featured">
+				<ul>
+					<?php echo $sub_nav_menu;?>
+				</ul>
+			</div>
+		<?php
+	}
+}
 
 /**
  * The related schools coverage link
