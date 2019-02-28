@@ -63,7 +63,11 @@ add_action( 'largo_after_sidebar_widgets', 'lens_sidebar_squandered' );
  * Charter School Reporting Corps sidebar
  */
 function lens_sidebar_csrc() {
-	global $shown_ids;
+	global $shown_ids, $paged;
+	if ( isset( $paged ) && $paged > 1 ) {
+		return;
+	}
+
 	?>
 		<div class="subcategory-featured sub-stories" id="csrc">
 			<header>
