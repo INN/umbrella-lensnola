@@ -488,7 +488,9 @@ p.wp-caption-text {
 }
 #main {
   max-width: 1170px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
 }
 #ad-banner-container {
   background: #595953;
