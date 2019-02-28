@@ -15,24 +15,33 @@ $meta = get_post_meta(get_the_ID(),'_custom_post_type_onomies_relationship',fals
 			<?php if ($meta): ?><a href="#" id="more_coverage_hover" onclick="return false;">Related schools coverage &raquo;</a><?php endif; ?>
 		</h5>
 
-		<?php if ($meta):?>
-			<?php if (is_array($meta)):
-				foreach ($meta as $value):
-					$school = get_post($value);
-					if($school->post_type == 'school'):
+		<?php
+			if ( ! empty( $meta ) ) {
+				if (is_array($meta)) {
+					foreach ($meta as $value):
+						$school = get_post($value);
+						if($school->post_type == 'school'):
+							$links[] = '<a href="'.get_permalink($school->ID).'">'.get_the_title($school->ID).'</a>';
+						endif;
+					endforeach;
+				} else {
+					$school = get_post($meta);
+					if ( isset( $school->post_type ) && $school->post_type == 'school' ) {
 						$links[] = '<a href="'.get_permalink($school->ID).'">'.get_the_title($school->ID).'</a>';
-					endif;
-				endforeach;
-			else:
-				$school = get_post($meta);
-				if($school->post_type == 'school'):
-					$links[] = '<a href="'.get_permalink($school->ID).'">'.get_the_title($school->ID).'</a>';
-				endif;
-			endif;?>
-			<ul class="school_link" style="display: none;">
-				<li><?php echo implode('</li><li>',$links);?></li>
-			</ul>
-		<?php endif;?>
+					}
+				}
+
+				if ( ! empty( $links ) ) {
+					?>
+						<ul class="school_link" style="display: none;">
+							<li>
+								<?php echo implode( '</li><li>', $links ); ?>
+							</li>
+						</ul>
+					<?php
+				}
+			}
+		?>
 
 		<h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
 		<?php if ( $subtitle = get_post_meta( $post->ID, 'subtitle', true ) ) : ?>
@@ -48,11 +57,11 @@ $meta = get_post_meta(get_the_ID(),'_custom_post_type_onomies_relationship',fals
 	</header><!-- / entry header -->
 
 	<?php
-		do_action('largo_after_post_header');
+		do_action( 'largo_after_post_header' );
 
-		largo_hero(null,'span12');
+		largo_hero( null, 'span12' );
 
-		do_action('largo_after_hero');
+		do_action( 'largo_after_hero' );
 	?>
 
 	<?php get_sidebar(); ?>
@@ -76,6 +85,6 @@ $meta = get_post_meta(get_the_ID(),'_custom_post_type_onomies_relationship',fals
 		</div>
 	</section><!-- .entry-content -->
 
-	<?php do_action('largo_after_post_content'); ?>
+	<?php do_action( 'largo_after_post_content' ); ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

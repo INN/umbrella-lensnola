@@ -118,3 +118,27 @@ function lens_sidebar_csrc() {
 	<?php
 }
 add_action( 'largo_before_category_river', 'lens_sidebar_csrc' );
+
+/**
+ * Page navigation
+ */
+function lens_sidebar_page_nav() {
+	echo '<h1>largo_after_hero</h1>';
+	$args = array(
+		'child_of' => ($post->post_parent) ? $post->post_parent : $post->ID,
+		'title_li' => '',
+		'echo' => false
+	);
+	$sub_nav_menu = wp_list_pages( $args );
+	
+	if ( ! empty( $sub_nav_menu ) ) {
+		?>
+			<div class="subcategory-featured">
+				<ul>
+					<?php echo $sub_nav_menu;?>
+				</ul>
+			</div>
+		<?php
+	}
+}
+add_action( 'largo_after_hero', 'lens_sidebar_page_nav' );
