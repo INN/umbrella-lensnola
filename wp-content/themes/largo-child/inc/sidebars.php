@@ -124,6 +124,10 @@ add_action( 'largo_before_category_river', 'lens_sidebar_csrc' );
  */
 function lens_sidebar_page_nav() {
 	echo '<h1>largo_after_hero</h1>';
+
+	if ( ! is_page() ) {
+		return;
+	}
 	$args = array(
 		'child_of' => ($post->post_parent) ? $post->post_parent : $post->ID,
 		'title_li' => '',
@@ -142,3 +146,80 @@ function lens_sidebar_page_nav() {
 	}
 }
 add_action( 'largo_after_hero', 'lens_sidebar_page_nav' );
+
+/**
+ * The related schools coverage link
+ *
+ * Affected post ID examples: 57851
+ *
+ * Before, this used to be part of the pseudo-top-term presentation of the post's categoris, which appeared in the header in Largo post-0.4's "top term" position.
+ */
+function lens_sidebar_schooling() {
+	if ( ! is_single() ) {
+		return;
+	}
+
+	$category = largo_child_get_the_category();
+	$meta = get_post_meta(get_the_ID(),'_custom_post_type_onomies_relationship',false);
+	
+	if ( ! empty( $meta ) ) {
+		echo '<div id="more_coverage" class="clearfix widget span2">';
+		?>
+			<h5 id="more_coverage_hover" >Related schools coverage</h5>
+		<?php
+		if (is_array($meta)) {
+			foreach ($meta as $value):
+				$school = get_post($value);
+				if($school->post_type == 'school'):
+					$links[] = '<a href="'.get_permalink($school->ID).'">'.get_the_title($school->ID).'</a>';
+				endif;
+			endforeach;
+		} else {
+			$school = get_post($meta);
+			if ( isset( $school->post_type ) && $school->post_type == 'school' ) {
+				$links[] = '<a href="'.get_permalink($school->ID).'">'.get_the_title($school->ID).'</a>';
+			}
+		}
+
+		if ( ! empty( $links ) ) {
+			?>
+				<ul class="school_link">
+					<li>
+						<?php echo implode( '</li><li>', $links ); ?>
+					</li>
+				</ul>
+			<?php
+		}
+
+		echo '</div>';
+	}
+}
+add_action( 'largo_after_hero', 'lens_sidebar_schooling' );
+
+/**
+ * Something about disclosures?
+ *
+ * Uses .entry-content to match the column above and below.
+ */
+function lens_sidebar_disclosure_container() {
+	if ( ! is_single() ) {
+		return;
+	}
+
+	?>
+		<div class="disclosure-container entry-content clearfix">
+			<span class="help">
+				<a href="<?php echo home_url('/about-us/contact-us');?>">Help us report this story</a>
+			</span>
+			&nbsp;&nbsp;&nbsp;
+			<span class="help">
+				<a href="<?php echo home_url('/about-us/contact-us');?>">Report an error</a>
+			</span>
+			&nbsp;&nbsp;&nbsp;
+			<div class="disclosure">
+				The Lens' <a href="<?php echo home_url('/support-us/supported-by/');?>">donors</a> and <a href="<?php echo home_url('/support-us/supported-by-2/');?>">partners</a> may be mentioned or have a stake in the stories we cover.</a>
+			</div>
+		</div>
+	<?php
+}
+add_action( 'largo_after_post_content', 'lens_sidebar_disclosure_container' );

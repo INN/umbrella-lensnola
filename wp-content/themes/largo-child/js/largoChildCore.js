@@ -35,51 +35,8 @@ jQuery(document).ready(function($) {
 			element.html(html);
 		}
 	});
-	
-	
-	$("#more_coverage_hover").hover(function() {
-		MenuOpenCloseErgoTimer(100, function(node) {
-			$(".school_link").stop(true, true).slideDown('fast').addClass("open");
-			$(document).one("click", function(e) {
-				var container = $(".school_link");
-				if (container.has(e.target).length === 0) {
-					container.slideUp('fast').removeClass("open");
-				}
-			});
-		}, this);
-	}, function() {
-		MenuOpenCloseErgoTimer(200, function() {
-			$(".school_link").stop(true, true).slideUp('fast').removeClass("open");
-		});
-	}); 
 
-	$(".school_link").hover(function() {
-		MenuOpenCloseErgoTimer(0, function() {
-			$(".school_link").stop(true, true).slideDown('fast').addClass("open");
-			$(this).show();
-		});
-	}, function() {
-		MenuOpenCloseErgoTimer(200, function() {
-			$(".school_link").stop(true, true).slideUp('fast').removeClass("open");
-			$(this).hide();
-		});
-	}); 
 
-	function MenuOpenCloseErgoTimer(dDelay, fActionFunction, node) {
-		if ( typeof this.delayTimer == "number") {
-			clearTimeout(this.delayTimer);
-			this.delayTimer = '';
-		}
-		if (node)
-			this.delayTimer = setTimeout(function() {
-				fActionFunction(node);
-			}, dDelay);
-		else
-			this.delayTimer = setTimeout(function() {
-				fActionFunction();
-			}, dDelay);
-	}
-	
 	/* Shopping cart scripts */
 	$("#wpsc_shopping_cart-2").hide();
 });

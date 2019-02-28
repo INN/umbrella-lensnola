@@ -322,6 +322,34 @@ p.wpsc_email_address_p input,
 #widget-squandered {
   font-stye: italic;
 }
+/**
+ * For the "Related Schools Coverage" sidebar thing
+ */
+#more_coverage {
+  float: right;
+  padding: 5px 10px;
+  clear: both;
+}
+#more_coverage h5 {
+  margin-bottom: 0.5em;
+  font-size: 16px;
+}
+#more_coverage ul {
+  font-size: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#more_coverage ul li {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+#more_coverage ul li a:hover {
+  color: #B43018;
+}
+#more_coverage + #sidebar {
+  clear: right;
+}
 body {
   font-family: "minion-pro", Georgia, "Times New Roman", Times, serif;
   color: #333;
@@ -464,29 +492,6 @@ div.aligncenter,
   font-size: 14px;
   font-weight: normal;
   color: inherit;
-}
-#more_coverage_hover {
-  float: right;
-  font-size: 12px;
-  margin-top: 2px;
-}
-.school_link {
-  background-color: #FFFFFF;
-  border: 1px solid #EEEEEE;
-  box-shadow: -5px 5px 5px #888888;
-  font-size: 12px;
-  left: 41%;
-  list-style: none;
-  padding: 5px 10px;
-  position: absolute;
-  top: 0;
-  z-index: 10;
-}
-.school_link li {
-  margin-bottom: 0;
-}
-.school_link li a:hover {
-  color: #B43018;
 }
 p.wp-media-credit {
   color: #AE9FAD;
@@ -733,22 +738,12 @@ p.wp-caption-text {
 .story h4 {
   margin-bottom: 12px!important;
 }
-.post-header,
-.page-header,
-.entry-content,
-.post-footer,
-article.story {
-  margin-bottom: 0;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #BABCBE;
-}
 h5,
 h5 a,
+h5.top-tag a,
 .stories h3,
 .entry-content h4 {
-  font-weight: normal;
   color: #B43018;
-  margin-bottom: 10px;
 }
 .entry-title h3 {
   text-transform: uppercase;
@@ -759,9 +754,9 @@ h5 a,
   font-weight: normal;
 }
 .subcategory-featured header h5,
-header.category-background h5,
 .subcategory-featured header h5 a,
-header.category-background h5 a,
+article header h5,
+article header h5 a,
 header.search-header h5 a {
   font-size: 13px;
   font-weight: bold;
