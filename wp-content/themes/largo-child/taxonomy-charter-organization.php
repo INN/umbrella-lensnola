@@ -41,7 +41,7 @@ if ( is_tax() || is_tag() || is_category() ) {
 					$school_ids = array();
 					while ( $schools->have_posts() ) : $schools->the_post();
 						$school_ids[] = $post->ID;
-						get_template_part( 'content', 'school' );
+						get_template_part( 'partials/content', 'school' );
 					endwhile;
 				}
 				?>
@@ -65,7 +65,7 @@ if ( is_tax() || is_tag() || is_category() ) {
 					if ( have_posts() ) :
 						$count = 1;
 						while ( have_posts() ) : the_post(); $ids[] = get_the_ID();
-								get_template_part( 'content', 'category' );
+								get_template_part( 'partials/content', 'archive' );
 						endwhile;
 					endif; // end more featured posts ?>
 			</div>

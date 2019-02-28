@@ -193,7 +193,7 @@ $grades = array('A-plus'=>'A+',
 					$wp_query = new WP_Query($args);
 					if ( $wp_query->have_posts() ) :
 						while ( $wp_query->have_posts() ) : $wp_query->the_post(); $ids[] = get_the_ID();
-								get_template_part( 'content', 'category' );
+								get_template_part( 'partials/content', 'archive' );
 						endwhile;
 						//largo_content_nav( 'nav-below' );
 					endif; // end more featured posts ?>

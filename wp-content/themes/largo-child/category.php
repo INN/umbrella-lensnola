@@ -20,12 +20,12 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 
 				<?php
 					while ( have_posts() ) : the_post();
-						get_template_part( 'content', 'category' );
+						get_template_part( 'partials/content', 'archive' );
 					endwhile;
 					largo_content_nav( 'nav-below' );
 
 				} else {
-					get_template_part( 'content', 'not-found' );
+					get_template_part( 'partials/content', 'not-found' );
 				}
 				?>
 

@@ -95,23 +95,23 @@ if ($page_num == 1):
                 if ($page_num == 1)
                 {
                     while ( have_posts() && $i < 5 ) : the_post();
-                        get_template_part( 'content', 'search' );
+                        get_template_part( 'partials/content', 'search' );
                         $i++;
                     endwhile;
                     echo "<h6 style='color:#B43018; margin-top: 40px;'>More Stories for '" . get_search_query() . "':</h6>";
                     while (have_posts()): the_post();
-                        get_template_part('content','search-other');
+                        get_template_part( 'partials/content','search-other' );
                     endwhile;
                 }
                 else 
                 {
                     while ( have_posts() ) : the_post();
-                        get_template_part( 'content', 'search' );
+                        get_template_part( 'partials/content', 'search' );
                     endwhile;
                     largo_content_nav( 'nav-below' );
                 }
             } else {
-                get_template_part( 'content', 'not-found' );
+                get_template_part( 'partials/content', 'not-found' );
             }
             if ($page_num == 1):
             ?>

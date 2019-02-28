@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div id="content" class="content-page span8" role="main">
 	<?php the_post(); ?>
-	<?php get_template_part( 'content', 'page' ); ?>
+	<?php get_template_part( 'partials/content', 'page' ); ?>
 
 	<div class="content-category stories">
 		<?php
@@ -26,12 +26,12 @@ get_header(); ?>
 						continue;
 					} else {
 						$ids[] = get_the_ID();
-						get_template_part( 'content', 'no-title' );
+						get_template_part( 'partials/content', 'no-title' );
 					}
 				endwhile;
 				largo_content_nav( 'nav-below' );
 			} else {
-				get_template_part( 'content', 'not-found' );
+				get_template_part( 'partials/content', 'not-found' );
 			} ?>
 	</div>
 </div><!-- /.grid_8 #content -->
