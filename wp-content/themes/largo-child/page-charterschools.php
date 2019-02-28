@@ -1,9 +1,11 @@
 <?php
 /*
-Template Name: Charter Schools
-*/
+ * Template Name: Charter Schools
+ */
 
-get_header(); ?>
+get_header();
+global $shown_ids;
+?>
 
 <div id="content" class="content-page span8" role="main">
 	<?php the_post(); ?>
@@ -19,29 +21,24 @@ get_header(); ?>
 			$args = array(
 				'category_name' => 'charterschools',
 				'posts_per_page'=> 4,
-				'post__not_in' 	=> $ids,
+				'post__not_in' 	=> $shown_ids,
 				'paged'			=> $paged
 				);
 			$wp_query = new WP_Query( $args );
 
 			if ( $wp_query->have_posts() ) {
-				while ( $wp_query->have_posts() ) : $wp_query->the_post();
-					//if the post is in the array of post IDs already on this page, skip it
-					if ( in_array( get_the_ID(), $ids ) ) {
-						continue;
-					} else {
-						$ids[] = get_the_ID();
-						get_template_part( 'partials/content', 'category-no-title' );
-					}
-				endwhile;
+				while ( $wp_query->have_posts() ) {
+					$wp_query->the_post();
+					$shown_ids[] = get_the_ID();
+					get_template_part( 'partials/content', 'category-no-title' );
+				}
 				largo_content_nav( 'nav-below' );
 			} else {
 				get_template_part( 'partials/content', 'not-found' );
 			} ?>
 	</div>
 </div><!-- /.grid_8 #content -->
-<div id="sidebar" class="span4">
-	<?php get_sidebar('schools'); ?>
-</div>
-<!-- /.grid_4 -->
+
+<?php get_sidebar('schools'); ?>
+
 <?php get_footer(); ?>
