@@ -765,7 +765,7 @@ header.search-header h5 a {
   text-transform: none;
   letter-spacing: 0px;
 }
-header.category-background h5 {
+h5.top-tag {
   border-bottom: 1px solid #BABCBE;
   width: 39%;
   font-size: 14px;
@@ -1545,12 +1545,6 @@ img.school_thumbnail {
   h1.page-title {
     font-size: 32px;
     line-height: 1.2;
-  }
-  header.category-background h5 {
-    width: inherit;
-  }
-  .category-background .related-topics ul {
-    line-height: 1.5;
   }
   .stories h2.entry-title,
   .sticky-main-feature h2 {
