@@ -58,3 +58,56 @@ function lens_sidebar_squandered() {
 	}
 }
 add_action( 'largo_after_sidebar_widgets', 'lens_sidebar_squandered' );
+
+/**
+ * Charter School Reporting Corps sidebar
+ */
+function lens_sidebar_csrc() {
+	global $shown_ids;
+	?>
+		<div class="subcategory-featured sub-stories" id="csrc">
+			<header>
+				<h5 class="charterschools">
+					<a href="<?php echo home_url('/charterschools');?>">Charter School Reporting Corps</a>
+				</h5>
+			</header>
+
+			<?php
+			$substories = largo_get_featured_posts( array(
+				'tax_query' => array(
+					array(
+						'taxonomy' 	=> 'prominence',
+						'field' 	=> 'slug',
+						'terms' 	=> 'charter-featured'
+					)
+				),
+				'showposts'		=> 5,
+				'post__not_in' 	=> $shown_ids,
+			) );
+			if ( $substories->have_posts() ) {
+				$count = 1;
+				while ( $substories->have_posts() ) {
+					$substories->the_post();
+					$ids[] = get_the_ID();
+					?>
+						<div class="story">
+							<header>
+								<h3>
+									<a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
+								</h3>
+							</header><!-- / entry header -->
+
+							<div class="entry-content">
+								<?php largo_byline(); ?>
+							</div><!-- .entry-content -->
+						</div>
+					<?php
+				}
+			}
+			?>
+			
+			<div class="charter-coverage-link"><span class="directive">&gt;</span> <a href="<?php echo home_url('/charterschools');?>">Complete Charter Schools Coverage</a></div>
+		</div>
+	<?php
+}
+add_action( 'largo_before_category_river', 'lens_sidebar_csrc' );
