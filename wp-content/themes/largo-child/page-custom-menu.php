@@ -3,7 +3,7 @@
 Template Name: Page (Custom Menu)
 */
 
-get_header(); 
+get_header();
 
 ?>
 
@@ -31,8 +31,7 @@ get_header();
 	<?php get_template_part( 'content', 'page' ); ?>
 
 </div><!-- /.grid_8 #content -->
-<aside id="sidebar" class="span4">
+
 <?php get_sidebar(); ?>
-</aside>
-<!-- /.grid_4 -->
+
 <?php get_footer(); ?>
