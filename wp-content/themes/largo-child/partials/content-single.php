@@ -59,25 +59,5 @@
 		</div>
 	</div><!-- .entry-content -->
 	<footer class="post-meta bottom-meta">
-
- 		<!-- Other posts in this series -->
- 		<?php if ( largo_post_in_series() ): ?>
-			<div class="labels clearfix">
-            	<h5><?php _e('More In This Series', 'largo'); ?></h5>
-            	<?php largo_the_series_list(); ?>
-        	</div>
-        <?php endif; ?>
-
-		<!-- Author bio and social links -->
-		<?php if ( largo_show_author_box() )
-			get_template_part( 'largo-author-box' );
-		?>
-
-		<!-- Related posts -->
-		<?php if ( of_get_option( 'show_related_content' ) )
-			get_template_part( 'largo-related-posts' );
-		?>
-
-
 	</footer><!-- /.post-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
