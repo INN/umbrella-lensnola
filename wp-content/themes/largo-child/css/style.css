@@ -699,11 +699,6 @@ p.wp-caption-text {
   border-bottom: 1px solid #D6D6D5;
   position: relative;
 }
-.content-category header h3 a,
-.content-page header h3 a {
-  font-size: 40px;
-  text-transform: none;
-}
 .story h4 {
   margin-bottom: 12px!important;
 }
@@ -720,14 +715,11 @@ h5,
 h5 a,
 .stories h3,
 .entry-content h4 {
-  font-size: 20px;
   font-weight: normal;
   color: #B43018;
-  text-transform: uppercase;
   margin-bottom: 10px;
 }
 .entry-title h3 {
-  font-size: 18px;
   text-transform: uppercase;
   font-weight: normal;
 }
