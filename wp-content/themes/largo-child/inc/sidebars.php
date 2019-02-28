@@ -101,7 +101,7 @@ function lens_sidebar_csrc() {
 								</h3>
 							</header><!-- / entry header -->
 
-							<div class="entry-content">
+							<div class="entry-content byline">
 								<?php largo_byline(); ?>
 							</div><!-- .entry-content -->
 						</div>
