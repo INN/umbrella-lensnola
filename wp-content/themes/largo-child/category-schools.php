@@ -114,9 +114,8 @@ if ( is_tax() || is_tag() || is_category() ) $term = $wp_query->get_queried_obje
 			</div>
 		</div>
 		<!-- /.grid_8 #content -->
-<div id="sidebar" class="span4">
-	<?php get_sidebar(); ?>
-</div>
+
+<?php get_sidebar(); ?>
 
 <!-- /.grid_4 -->
 <?php get_footer(); ?>
