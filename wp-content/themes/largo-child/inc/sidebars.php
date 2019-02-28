@@ -63,6 +63,9 @@ add_action( 'largo_after_sidebar_widgets', 'lens_sidebar_squandered' );
  * Charter School Reporting Corps sidebar
  */
 function lens_sidebar_csrc() {
+	if ( ! is_category( 'schools' ) ) {
+		return;
+	}
 	global $shown_ids, $paged;
 	if ( isset( $paged ) && $paged > 1 ) {
 		return;
