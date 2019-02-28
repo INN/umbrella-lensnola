@@ -2,6 +2,7 @@
 @import "woocommerce.less";
 @import "header.less";
 @import "breakout.less";
+@import "csrc.less";
 @import "widgets.less";
 
 body {
@@ -562,6 +563,7 @@ input[name="ns_widget_mailchimp_email"] {
 
 .subcategory-featured {
   float:right;
+  box-sizing: border-box;
   background-color:#F2F1EC;
   background-image: -moz-linear-gradient(top, #F2F1EC, #FFF);
   background-image: -ms-linear-gradient(top, #F2F1EC, #FFF);
@@ -573,7 +575,6 @@ input[name="ns_widget_mailchimp_email"] {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F1EC', endColorstr='#FFFFFF', GradientType=0)!important;
   width:22%;
   margin-left: 1%;
-  margin-top: -7px;
   padding: 2%;
 
   ul {
@@ -591,37 +592,6 @@ input[name="ns_widget_mailchimp_email"] {
     }
   }
 }
-
-/* next id is for top margin on CSRC box on Schools category page */
-#csrc {margin-top: -59px; width: 32%!important;}
-
-#csrc header {margin-bottom: 15px;}
-#csrc .story {margin-bottom: 12px;}
-#csrc .story h3 {line-height: 18px!important;}
-#csrc .story h3 a {font-size: 15px; line-height: 18px!important;}
-.stories #csrc .entry-content {min-height:auto;}
-
-
-.category-featured {
-  float:left;
-  width:58%;
-  article:last-child .entry-content {
-    border-bottom: none;
-  }
-}
-
-
-
-.charter-coverage-link {
-  margin-top:25px;
-  font-size:15px;
-  font-weight:bold;
-  font-family: @sans;
-  a:hover {
-    color:#B43018;
-  }
-}
-
 
 .stories .entry-content,
 .stories .entry-content p {
@@ -742,7 +712,6 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 
 #sidebar {
   *margin-left: 95px;
-  margin-top: -7px;
   font-family: @sans;
 }
 
