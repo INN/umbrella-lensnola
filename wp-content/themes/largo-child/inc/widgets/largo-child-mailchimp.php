@@ -1,6 +1,13 @@
 <?php
+/**
+ * Modified Mailchimp Signup Widget
+ *
+ * Depends upon James Lafferty's "Mailchimp Widget" plugin.
+ *
+ */
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
  
 /**
  * @author James Lafferty
@@ -23,6 +30,7 @@ class largo_child_mailchimp extends WP_Widget {
 	 * @since 0.1
 	 */
 	public function __construct() {
+
 		if (is_plugin_active('mailchimp-widget/mailchimp-widget.php')) {
 			$this->default_failure_message = __('There was a problem processing your submission.');
 			$this->default_signup_text = __('Join now!');
@@ -43,16 +51,14 @@ class largo_child_mailchimp extends WP_Widget {
 	 * @author James Lafferty
 	 * @since 0.1
 	 */
-	
 	public function add_scripts () {
 		wp_enqueue_script('ns-mc-widget', get_bloginfo('wpurl') . '/wp-content/plugins/mailchimp-widget/js/mailchimp-widget-min.js', array('jquery'), false);
 	}
-	
+
 	/**
 	 * @author James Lafferty
 	 * @since 0.1
 	 */
-	
 	public function form ($instance) {
 		$mcapi = $this->ns_mc_plugin->get_mcapi();
 		if (false == $mcapi) {
@@ -129,19 +135,10 @@ class largo_child_mailchimp extends WP_Widget {
 						<label for="<?php echo $this->get_field_id('failure_message'); ?>"><?php echo __('Failure :', 'mailchimp-widget'); ?></label>
 						<textarea class="widefat" id="<?php echo $this->get_field_id('failure_message'); ?>" name="<?php echo $this->get_field_name('failure_message'); ?>"><?php echo $failure_message; ?></textarea>
 					</p>
-					
+
 					<label for="<?php echo $this->get_field_id( 'widget_class' ); ?>"><?php _e('Widget Class', 'largo'); ?></label>
 					<input class="widefat" id="<?php echo $this->get_field_id('widget_class'); ?>" name="<?php echo $this->get_field_name('widget_class'); ?>" value="<?php echo $widget_class; ?>" />
-			
-					<p style="margin:15px 0 10px 5px">
-						<input class="checkbox" type="checkbox" <?php echo $desktop; ?> id="<?php echo $this->get_field_id('hidden_desktop'); ?>" name="<?php echo $this->get_field_name('hidden_desktop'); ?>" /> <label for="<?php echo $this->get_field_id('hidden_desktop'); ?>"><?php _e('Hidden on Desktops?', 'largo'); ?></label>
-						<br />
-						<input class="checkbox" type="checkbox" <?php echo $tablet; ?> id="<?php echo $this->get_field_id('hidden_tablet'); ?>" name="<?php echo $this->get_field_name('hidden_tablet'); ?>" /> <label for="<?php echo $this->get_field_id('hidden_tablet'); ?>"><?php _e('Hidden on Tablets?', 'largo'); ?></label>
-						<br />
-						<input class="checkbox" type="checkbox" <?php echo $phone; ?> id="<?php echo $this->get_field_id('hidden_phone'); ?>" name="<?php echo $this->get_field_name('hidden_phone'); ?>" /> <label for="<?php echo $this->get_field_id('hidden_phone'); ?>"><?php _e('Hidden on Phones?', 'largo'); ?></label>
-					</p>
 			<?php
-			
 		}
 	}
 	
@@ -287,14 +284,8 @@ class largo_child_mailchimp extends WP_Widget {
 		$instance['success_message'] = esc_attr($new_instance['success_message']);
 		
 		$instance['title'] = esc_attr($new_instance['title']);
-		
-		$instance['widget_class'] = $new_instance['widget_class'];
-		$instance['hidden_desktop'] = $new_instance['hidden_desktop'] ? 1 : 0;
-		$instance['hidden_tablet'] = $new_instance['hidden_tablet'] ? 1 : 0;
-		$instance['hidden_phone'] = $new_instance['hidden_phone'] ? 1 : 0;
-		
+
 		return $instance;
-		
 	}
 	
 	/**
@@ -312,21 +303,6 @@ class largo_child_mailchimp extends WP_Widget {
 			
 		} else {
 			
-			$widget_class = !empty($instance['widget_class']) ? $instance['widget_class'] : '';
-			if ($instance['hidden_desktop'] === 1)
-				$widget_class .= ' hidden-desktop';
-			if ($instance['hidden_tablet'] === 1)
-				$widget_class .= ' hidden-tablet';
-			if ($instance['hidden_phone'] === 1)
-				$widget_class .= ' hidden-phone';
-			/* Add the widget class to $before widget, used as a style hook */
-			if( strpos($before_widget, 'class') === false ) {
-				$before_widget = str_replace('>', 'class="'. $widget_class . '"', $before_widget);
-			}
-			else {
-				$before_widget = str_replace('class="', 'class="'. $widget_class . ' ', $before_widget);
-			}
-	
 			echo $before_widget;
 			?>
 			<div class="right_sidebar_content">
