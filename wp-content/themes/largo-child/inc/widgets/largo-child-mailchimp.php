@@ -30,7 +30,8 @@ class largo_child_mailchimp extends WP_Widget {
 			$this->default_success_message = __('Thank you for joining our mailing list. Please check your email for a confirmation link.');
 			$this->default_title = __('Sign up for our mailing list.');
 			$widget_options = array('classname' => 'widget_ns_mailchimp', 'description' => __( "Displays a sign-up form for a MailChimp mailing list.", 'mailchimp-widget'));
-			$this->WP_Widget('ns_widget_mailchimp', __('Largo Child MailChimp List Signup', 'mailchimp-widget'), $widget_options);
+
+			parent::__construct('ns_widget_mailchimp', __('Largo Child MailChimp List Signup', 'mailchimp-widget'), $widget_options);
 			$this->ns_mc_plugin = NS_MC_Plugin::get_instance();
 			$this->default_loader_graphic = get_bloginfo('wpurl') . $this->default_loader_graphic;
 			add_action('init', array(&$this, 'add_scripts'));

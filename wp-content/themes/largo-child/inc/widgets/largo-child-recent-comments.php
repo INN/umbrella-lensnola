@@ -16,7 +16,7 @@ class largo_child_recent_comments_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-recent-comments-widget', __('Largo Child Recent Comments', 'largo'), $widget_ops );
+		parent::__construct( 'largo-recent-comments-widget', __('Largo Child Recent Comments', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_recent_comments';
 
 		add_action( 'comment_post', array(&$this, 'flush_widget_cache') );

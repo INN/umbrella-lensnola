@@ -16,7 +16,7 @@ class largo_child_awards_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-child-awards-widget', __('Largo Child Awards', 'largo'), $widget_ops );
+		parent::__construct( 'largo-child-awards-widget', __('Largo Child Awards', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_child_awards';
 
 		add_action( 'award_post', array(&$this, 'flush_widget_cache') );

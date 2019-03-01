@@ -9,7 +9,7 @@ class largo_child_find_school_widget extends WP_Widget {
 			'classname' => 'largo-child-find-school',
 			'description'=> __('Allows visitors to navigate to charter school and school board pages', 'largo')
 		);
-		$this->WP_Widget('largo-child-find-school-widget', __('Largo Child Find School Widget', 'largo'),$widget_opts);
+		parent::__construct('largo-child-find-school-widget', __('Largo Child Find School Widget', 'largo'),$widget_opts);
 	}
 
 	/**

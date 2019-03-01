@@ -16,7 +16,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-child-ad-banners-widget', __('Largo Child Ad Banners', 'largo'), $widget_ops );
+		parent::__construct( 'largo-child-ad-banners-widget', __('Largo Child Ad Banners', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_child_ad_banners';
 
 		add_action( 'ad_banner_post', array(&$this, 'flush_widget_cache') );

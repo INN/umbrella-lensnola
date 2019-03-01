@@ -16,7 +16,7 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-child-ad-sidebars-widget', __('Largo Child Ad Sidebars', 'largo'), $widget_ops );
+		parent::__construct( 'largo-child-ad-sidebars-widget', __('Largo Child Ad Sidebars', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_child_ad_sidebars';
 
 		add_action( 'ad_sidebar_post', array(&$this, 'flush_widget_cache') );

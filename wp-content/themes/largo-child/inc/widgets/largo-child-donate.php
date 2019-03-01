@@ -9,7 +9,7 @@ class largo_child_donate_widget extends WP_Widget {
 			'classname' => 'largo-donate',
 			'description'=> __('Call-to-action for donations', 'largo')
 		);
-		$this->WP_Widget('largo-donate-widget', __('Largo Donate Widget', 'largo'),$widget_opts);
+		parent::__construct('largo-donate-widget', __('Largo Donate Widget', 'largo'),$widget_opts);
 	}
 	public function widget( $args, $instance ) {
 		extract( $args );

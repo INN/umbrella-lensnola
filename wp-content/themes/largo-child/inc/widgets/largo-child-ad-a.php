@@ -16,7 +16,7 @@ class largo_child_ad_testimonials_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-child-ad-testimonials-widget', __('Largo Child Ad Testimonials', 'largo'), $widget_ops );
+		parent::__construct( 'largo-child-ad-testimonials-widget', __('Largo Child Ad Testimonials', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_child_ad_testimonials';
 
 		add_action( 'ad_testimonial_post', array(&$this, 'flush_widget_cache') );
