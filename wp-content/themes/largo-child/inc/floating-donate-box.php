@@ -5,8 +5,15 @@
 
 /**
  * Output the sliding popup
+ *
+ * Depends on the presence of an element on the page which is contained in lens_sidebar_disclosure_container();
+ *
+ * @see lens_sidebar_disclosure_container
  */
 function lens_sliding_popout() {
+	if ( ! is_single() ) {
+		return;
+	}
 	?>
 		<!-- BEGIN SLIDING POP OUT -->
 		<script>

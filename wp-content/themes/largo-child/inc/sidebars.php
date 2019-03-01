@@ -233,6 +233,8 @@ add_action( 'largo_after_hero', 'lens_sidebar_schooling' );
  * Something about disclosures?
  *
  * Uses .entry-content to match the column above and below.
+ *
+ * @see lens_sliding_popout
  */
 function lens_sidebar_disclosure_container() {
 	if ( ! is_single() ) {
