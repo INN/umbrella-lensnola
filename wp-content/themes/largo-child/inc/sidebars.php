@@ -99,7 +99,7 @@ function lens_sidebar_csrc() {
 					?>
 						<div class="story">
 							<header>
-								<h3>
+								<h3 class="entry-title">
 									<a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
 								</h3>
 							</header><!-- / entry header -->
@@ -113,7 +113,9 @@ function lens_sidebar_csrc() {
 			}
 			?>
 			
-			<div class="charter-coverage-link"><span class="directive">&gt;</span> <a href="<?php echo home_url('/charterschools');?>">Complete Charter Schools Coverage</a></div>
+			<div class="charter-coverage-link">
+				<a href="<?php echo home_url('/charterschools');?>">Complete Charter Schools Coverage</a> &rarr;
+			</div>
 		</div>
 	<?php
 }
