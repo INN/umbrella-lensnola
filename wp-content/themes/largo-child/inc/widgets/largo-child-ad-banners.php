@@ -8,7 +8,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 	/**
 	 * Widget setup.
 	 */
-	function largo_child_ad_banners_widget() {
+	public function __construct() {
 		/* Widget settings. */
 		$widget_ops = array(
 			'classname' 	=> 'largo-child-ad-banners',
@@ -23,14 +23,14 @@ class largo_child_ad_banners_widget extends WP_Widget {
 		add_action( 'transition_ad_banner_status', array(&$this, 'flush_widget_cache') );
 	}
 
-	function flush_widget_cache() {
+	public function flush_widget_cache() {
 		wp_cache_delete('largo_child_ad_banners', 'widget');
 	}
 
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		global $adBanners, $adBanner;
 
 		$cache = wp_cache_get('widget_ad_banner', 'widget');
@@ -51,7 +51,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title'] );
 
 		if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) )
- 			$number = 1;
+			$number = 1;
 
 		$adBanners = get_posts( apply_filters( 'widget_ad_banners_args', array( 'showposts' => $number, 'status' => 'approve', 'post_status' => 'publish', 'post_type' => 'ad728', 'orderby' => 'rand' ) ) );
 
@@ -78,7 +78,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 			foreach ( (array) $adBanners as $adBanner) {
 				$output .=  $adBanner->post_content;
 			}
- 		}
+		}
 		$output .= $after_widget;
 
 		echo $output;
@@ -89,7 +89,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 	/**
 	 * Update the widget settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['number'] = absint( $new_instance['number'] );
@@ -109,7 +109,7 @@ class largo_child_ad_banners_widget extends WP_Widget {
 	/**
 	 * Displays the widget settings controls on the widget panel.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 
 		/* Set up some default widget settings. */
 		$defaults = array(

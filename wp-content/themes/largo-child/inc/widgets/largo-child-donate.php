@@ -4,14 +4,14 @@
  */
 class largo_child_donate_widget extends WP_Widget {
 
-	function largo_child_donate_widget() {
+	public function __construct() {
 		$widget_opts = array(
 			'classname' => 'largo-donate',
 			'description'=> __('Call-to-action for donations', 'largo')
 		);
 		$this->WP_Widget('largo-donate-widget', __('Largo Donate Widget', 'largo'),$widget_opts);
 	}
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		$title = apply_filters('widget_title', $instance['title'] );
@@ -42,7 +42,7 @@ class largo_child_donate_widget extends WP_Widget {
 		echo $after_widget;
 	}
 
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['cta_text'] = strip_tags( $new_instance['cta_text'] );
@@ -54,7 +54,7 @@ class largo_child_donate_widget extends WP_Widget {
 		$instance['hidden_phone'] = $new_instance['hidden_phone'] ? 1 : 0;
 		return $instance;
 	}
-	function form( $instance ) {
+	public function form( $instance ) {
 		$donate_link = '';
 		if ( of_get_option( 'donate_link' ) )
 			$donate_link = esc_url( of_get_option( 'donate_link' ) );

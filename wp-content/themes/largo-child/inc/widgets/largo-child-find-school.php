@@ -4,7 +4,7 @@
  */
 class largo_child_find_school_widget extends WP_Widget {
 
-	function largo_child_find_school_widget() {
+	public function __construct() {
 		$widget_opts = array(
 			'classname' => 'largo-child-find-school',
 			'description'=> __('Allows visitors to navigate to charter school and school board pages', 'largo')
@@ -15,7 +15,7 @@ class largo_child_find_school_widget extends WP_Widget {
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters('widget_title', $instance['title'] );
 
@@ -97,7 +97,7 @@ class largo_child_find_school_widget extends WP_Widget {
 	/**
 	 * Update the widget settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['widget_class'] = $new_instance['widget_class'];
@@ -110,7 +110,7 @@ class largo_child_find_school_widget extends WP_Widget {
 	/**
 	 * Displays the widget settings controls on the widget panel.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 
 		/* Set up some default widget settings. */
 		$defaults = array(

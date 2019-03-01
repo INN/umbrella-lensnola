@@ -1,5 +1,12 @@
 <?php
+/**
+ * Largo Child WP Most Pupular
+ *
+ * Depends upon https://wordpress.org/plugins/wp-most-popular/
+ */
+
 class largo_child_most_popular extends WP_Widget {
+
 	public function __construct() {
 		parent::WP_Widget( 'wmp_widget', 'Largo Child WP Most Popular', array( 'description' => 'Display your most popular blog posts on your sidebar' ) );
 	}
@@ -72,6 +79,11 @@ class largo_child_most_popular extends WP_Widget {
 	}
 	
 	public function widget( $args, $instance ) {
+		if ( ! function_exists( 'wmp_get_popular' ) ) {
+			echo '<!-- The Largo Child WP Most Popular Widget depends on the wp-most-popular plugin, which does not appear to be active, or has ceased to provide the function wmp_most_popular. Please remedy the situation. -->';
+			return;
+		}
+
 		// Find default args
 		extract( $args );
 		
