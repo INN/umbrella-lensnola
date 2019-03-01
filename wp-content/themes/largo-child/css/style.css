@@ -887,31 +887,6 @@ input[name="ns_widget_mailchimp_email"] {
   font-weight: bold;
   font-size: 13px;
 }
-.small_comments a,
-.smaller_byline_comments a {
-  background: url(images/comment_bg.png) no-repeat;
-  margin-left: 15px;
-  padding-left: 20px;
-  color: #a7a299;
-  font-size: 12px;
-}
-.small_comments a:hover,
-.smaller_byline_comments a:hover {
-  background: url(images/comment_bg_hover.png) no-repeat;
-  margin-left: 15px;
-  padding-left: 20px;
-  color: #a7a299;
-  height: 40px;
-  color: #B43018;
-}
-.smaller_byline_comments {
-  display: block;
-  float: right;
-  margin-top: 2px;
-}
-.smaller_byline_comments a {
-  font-size: 10px;
-}
 .readmore a {
   color: #a7a199;
 }
