@@ -20,15 +20,6 @@ a {
   }
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 19.56px;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: @sans;
 }
@@ -55,13 +46,21 @@ blockquote {
   p {
     margin-left: 7%;
   }
+  p:first-child:before {
+    content:open-quote;
+    font-family: @sans;
+    color:#999999;
+    font-size:100pt;
+    line-height:1;
+    margin-left:-7%;
+    float:left;
+  }
+  p:last-child:after {
+    content:close-quote;
+  }
 }
 
 
-blockquote {
-  p:first-child:before {content:open-quote; font-family: @sans; color:#999999; font-size:100pt; line-height:1; margin-left:-7%; float:left;}
-  p:last-child:after {content:close-quote;}
-}
 
 
 #popout-box {
@@ -183,10 +182,15 @@ p.wp-caption-text {
 #site-footer {
 	margin: 0 auto;
 	max-width: 1170px;
+	#boilerplate {
+		a,
+		p {
+			color: @black;
+		}
+		a:hover {
+		}
+	}
 }
-
-#logo {background: url(images/logo.png) no-repeat; width: 585px; height: 172px; float: left; margin: 25px 0 0 75px; position: relative; z-index: 1;}
-
 
 #top_about_section {
 	float: right;
@@ -201,10 +205,14 @@ p.wp-caption-text {
 	text-transform:uppercase;
 	color: #fff;
 	letter-spacing: 4px;
+
+	a {
+		color: @white;
+	}
+	img {margin:0;}
 }
 
-#top_about_section a {color: #fff;}
-#top_about_section img {margin:0;}
+
 
 #social_media {padding-bottom: 20px; width: 180px; margin: 40px auto 0;}
 #social_media img {padding: 0 15px;}
@@ -219,11 +227,6 @@ p.wp-caption-text {
     width: 24px;
 }
 
-.post-social {
-  border:0;
-}
-.post-social span.print {font-family: @sans;}
-
 #call_to_action {height: 21px; width: 100%; margin: 25px auto 0;}
 #call_to_action a {display:block; float:left; width:50%; text-align:center;}
 #call_to_action a img {float:none; display:inline;}
@@ -237,15 +240,6 @@ p.wp-caption-text {
     border-radius: 4px;
 	margin-right: 20px;
 	font-weight:bold;
-}
-
-.print .button_link {
-	font-size:13px;
-	padding:2px 5px;
-}
-
-.post-social span.print {
-  top: -1px;
 }
 
 #about {
@@ -313,12 +307,6 @@ p.wp-caption-text {
 	vertical-align:top;
 }
 
-.content-single h1 {font-weight:normal; font-size: 40px; line-height: 44px;}
-
-.content-single header {border-bottom:1px solid #D6D6D5; position:relative;}
-
-.story h4 {margin-bottom: 12px!important;}
-
 h5,
 h5 a,
 h5.top-tag a,
@@ -328,7 +316,7 @@ h5.top-tag a,
 }
 
 .entry-title h3 {
-  text-transform:uppercase;
+  text-transform: uppercase;
   font-weight: normal;
 }
 
@@ -338,17 +326,15 @@ h5.top-tag a,
 }
 
 .subcategory-featured header h5,
-.subcategory-featured header h5 a,
 article header h5,
-article header h5 a,
-header.search-header h5 a {
+header.search-header h5 {
   font-size: 13px;
   font-weight: bold;
   margin-bottom: 6px;
   line-height: 1.2;
   text-transform:none;
-  letter-spacing:0px;
 }
+
 h5.top-tag {
   border-bottom: 1px solid #BABCBE;
   width: auto;
