@@ -49,7 +49,7 @@ if ($page_num == 1):
                 html += '<article class="argolinks type-argolinks status-publish hentry clearfix">';
                 html += '<header class="search-header">';
                 html += '<h5 class="documents"><a>Documents</a></h5>';
-                html += '<h3><a rel="bookmark" title="' + data.documents[i].title + '" href="' + data.documents[i].canonical_url + '" target="_blank">';
+                html += '<h3 class="entry-title"><a rel="bookmark" title="' + data.documents[i].title + '" href="' + data.documents[i].canonical_url + '" target="_blank">';
                 html += data.documents[i].title + '</a>';
                 html += '</h3><div class="post-meta"></div></header>';
                 html += '<div class="entry-content">';
@@ -98,6 +98,7 @@ if ($page_num == 1):
                         get_template_part( 'partials/content', 'search' );
                         $i++;
                     endwhile;
+
                     echo "<h6 style='color:#B43018; margin-top: 40px;'>More Stories for '" . get_search_query() . "':</h6>";
                     while (have_posts()): the_post();
                         get_template_part( 'partials/content','search-other' );
@@ -122,9 +123,8 @@ if ($page_num == 1):
             <?php if ($page_num == 1): ?>
             <div id="doccloud_results_container" <?php if ($page_num == 1): ?>class="drc"<?php endif; ?>><img src="<?php echo home_url('/wp-content/themes/largo-child/images/ajax-loader.gif');?>" alt="Loading..." /></div>
             <?php endif; ?>
-            </div><!--/.grid_8 #content-->
+		</div>
 
-<div id="sidebar" class="span4">
 <?php get_sidebar(); ?>
-</div><!-- /.grid_4 -->
+
 <?php get_footer(); ?>
