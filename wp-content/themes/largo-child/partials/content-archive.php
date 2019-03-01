@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content
+ * The template for displaying posts in an archive.
  *
  * @package WordPress
  */
@@ -9,7 +9,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 
 	<header>
-		<h3><a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+		<h3 class="entry-title"><a href="<?php the_permalink(); ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 	</header><!-- / entry header -->
 
 	<div class="entry-content clearfix">
