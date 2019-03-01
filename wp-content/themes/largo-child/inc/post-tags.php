@@ -20,9 +20,27 @@ if ( ! function_exists( 'largo_content_nav' ) ) {
 	}
 }
 
-function largo_child_category_link($term,$slug)
-{
-	if ($slug == "charterschools") return home_url('/charterschools');
-	
+function largo_child_category_link($term,$slug) {
+	if ($slug == "charterschools") {
+		return home_url('/charterschools');
+	}
+
 	return get_category_link($term);
 }
+
+/**
+ * A filter for largo_byline allowing adding the option tag to the start.
+ */
+function largo_byline_filter_option_tag( $byline ) {
+	if ( has_category( 'opinion' ) ) {
+		$byline = sprintf(
+			'%1$s %2$s',
+			'<span class="opinion-label">Opinion</span>',
+			$byline
+		);
+	}
+
+	
+	return $byline;
+}
+add_filter( 'largo_byline', 'largo_byline_filter_option_tag', 10, 1 );
