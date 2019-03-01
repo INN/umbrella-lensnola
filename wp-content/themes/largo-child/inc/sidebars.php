@@ -10,6 +10,7 @@ function largochild_register_sidebars() {
 	register_sidebar( array(
 		'name' => 'Top Banner (left)',
 		'id' => 'top_banner',
+		'description' => 'These widgets appear above the logo, to the left.',
 		'before_widget' => '<div id="sponsor" class="%2$s">',
 		'after_widget' 	=> '</div>',
 		'before_title' => '',
@@ -19,6 +20,7 @@ function largochild_register_sidebars() {
 	register_sidebar( array(
 		'name' => 'Top Text (right)',
 		'id' => 'top_text',
+		'description' => 'These widgets appear above the logo, to the right.',
 		'before_widget' => '<div id="top_comments" class="%2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '',
@@ -28,6 +30,7 @@ function largochild_register_sidebars() {
 	register_sidebar( array(
 		'name' => 'Top About Section',
 		'id' => 'top_about_section',
+		'description' => 'These widgets are output in the header, to the right of the logo on desktop',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '',
