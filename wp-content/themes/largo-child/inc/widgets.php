@@ -30,18 +30,22 @@ require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-donate.php'
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-find-school.php' );
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-recent-comments.php' );
 require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-most-popular.php' );
-require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-mailchimp.php' );
+if ( class_exists( 'NS_MC_Plugin' ) ) {
+	require_once( get_stylesheet_directory() . '/inc/widgets/largo-child-mailchimp.php' );
+}
 
 // and then register them
 function largo_child_load_widgets() {
-    register_widget( 'largo_child_ad_banners_widget' );
-    register_widget( 'largo_child_ad_sidebars_widget' );
-    register_widget( 'largo_child_ad_testimonials_widget' );
-    register_widget( 'largo_child_awards_widget' );
-    register_widget( 'largo_child_donate_widget' );
-    register_widget( 'largo_child_find_school_widget' );
-    register_widget( 'largo_child_recent_comments_widget' );
-    register_widget( 'largo_child_most_popular' );
-    register_widget( 'largo_child_mailchimp' );
+	register_widget( 'largo_child_ad_banners_widget' );
+	register_widget( 'largo_child_ad_sidebars_widget' );
+	register_widget( 'largo_child_ad_testimonials_widget' );
+	register_widget( 'largo_child_awards_widget' );
+	register_widget( 'largo_child_donate_widget' );
+	register_widget( 'largo_child_find_school_widget' );
+	register_widget( 'largo_child_recent_comments_widget' );
+	register_widget( 'largo_child_most_popular' );
+	if ( class_exists( 'NS_MC_Plugin' ) ) {
+		register_widget( 'largo_child_mailchimp' );
+	}
 }
 add_action( 'widgets_init', 'largo_child_load_widgets' );
