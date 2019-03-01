@@ -223,10 +223,8 @@ p.wpsc_email_address_p input,
   clear: none;
   margin-top: 25px;
   margin-right: 0;
-  margin-bottom: -17px !important;
   margin-left: 75px;
   position: relative;
-  z-index: 1;
 }
 .navbar {
   font-family: "news-gothic-std", Helvetica, Arial, sans-serif;

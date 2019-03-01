@@ -75,10 +75,12 @@
   clear: none;
   margin-top: 25px;
   margin-right: 0;
-  margin-bottom:-17px !important; // this is how the header image overlies the main nav
+  // The header image used to overlay the main nav
+  // I'm disabling this because it was preventing clicking on some of the nav links.
+  // margin-bottom:-17px !important;
+  // z-index: 1;
   margin-left: 75px;
   position: relative;
-  z-index: 1;
 }
 
 .navbar {
