@@ -48,16 +48,16 @@ add_action( 'wp_head', function() {
  * Dynamic CSS classes for categories
  */
 function largo_child_categories_css() {
-	$heredoc = <<<EOF
+	$nowdoc = <<<'EOF'
 	<style type="text/css">
 		.what-were-reading {
-			background-image:url('%1$s');
+			background-image: url( '%1$s' );
 			background-repeat: no-repeat;
 			line-height: 19px;
 			padding: 2px 0 3px 25px;
 		}
 		.documents {
-			background-image:url('%2$s');
+			background-image: url( '%2$s' );
 			background-position:  left top;
 			background-repeat: no-repeat;
 			line-height: 20px;
@@ -68,7 +68,7 @@ function largo_child_categories_css() {
 		.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
 EOF;
 	printf(
-		$heredoc,
+		$nowdoc,
 		home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png'),
 		home_url('/wp-content/themes/largo-child/images/icons/documents.png')
 	);
@@ -81,7 +81,7 @@ EOF;
 				background-repeat: no-repeat;
 				line-height: 22px;
 				padding: 0 0 5px 30px;
-				}";
+				}\n";
 		}
 	}
 	echo '</style>'; // started in that EOF block.
