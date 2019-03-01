@@ -307,50 +307,6 @@ p.wp-caption-text {
     padding-bottom: 13px !important;
   }
 }
-#secondary-nav {
-  margin-top: 0;
-  border-bottom: none;
-  padding-bottom: 3px;
-  background-color: #B43018;
-  color: #FFF;
-  background-image: -moz-linear-gradient(top, #932714, #B43018);
-  background-image: -ms-linear-gradient(top, #932714, #B43018);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#932714), to(#B43018));
-  background-image: -webkit-linear-gradient(top, #932714, #B43018);
-  background-image: -o-linear-gradient(top, #932714, #B43018);
-  background-image: linear-gradient(top, #932714, #B43018);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#932714', endColorstr='#B43018', GradientType=0);
-  min-height: 28px;
-  a {
-    color: #FFF;
-  }
-  .menu-item {
-    border-right: 1px solid #FFF;
-    padding-right: 5px;
-  }
-  .menu-item:last-child {
-    border:none;
-  }
-  ul {
-    margin: 0;
-    font-family: @sans;
-    font-size: 14px;
-
-    li {
-      display: inline;
-      margin-right: 5px;
-      white-space: nowrap;
-
-      h4 {
-        font-size: 14px;
-        margin-bottom: 0;
-        display: inline;
-        font-weight:800;
-      }
-    }
-  }
-}
 
 .directive {
 	font-size:.7em;
@@ -395,10 +351,18 @@ header.search-header h5 a {
 }
 h5.top-tag {
   border-bottom: 1px solid #BABCBE;
-  width:39%;
+  width: auto;
+  width: fit-content;
   font-size: 14px;
   padding-bottom: 5px;
+  margin-bottom: 5px;
 }
+#dark-top .side-featured h5.top-tag {
+  border-bottom: none;
+}
+
+
+
 .subcategory-featured header h5 {
   font-size:14px;
 }
