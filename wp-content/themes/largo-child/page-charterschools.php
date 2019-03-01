@@ -41,7 +41,7 @@ get_header();
 				while ( $wp_query->have_posts() ) {
 					$wp_query->the_post();
 					$shown_ids[] = get_the_ID();
-					get_template_part( 'partials/content', 'category-no-title' );
+					get_template_part( 'partials/content', 'category' );
 				}
 				largo_content_nav( 'nav-below' );
 			} else {

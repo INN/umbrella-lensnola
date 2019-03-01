@@ -34,7 +34,7 @@ get_header();
 						continue;
 					} else {
 						$shown_ids[] = get_the_ID();
-						get_template_part( 'partials/content', 'no-title' );
+						get_template_part( 'partials/content', 'category' );
 					}
 				endwhile;
 				largo_content_nav( 'nav-below' );
