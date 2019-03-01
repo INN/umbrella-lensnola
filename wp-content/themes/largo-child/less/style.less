@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: #4e4c4d;
+  color: @brick;
   text-decoration: none;
   &::hover {
     color: #221f1f;
@@ -310,14 +310,25 @@ p.wp-caption-text {
 h5,
 h5 a,
 h5.top-tag a,
-.stories h3,
 .entry-content h4 {
   color: #B43018;
 }
 
-.entry-title h3 {
-  text-transform: uppercase;
+.entry-title {
   font-weight: normal;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  a {
+    color: inherit;
+    &:hover {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
 }
 
 .sub-entry-title {
@@ -354,7 +365,6 @@ h5.top-tag {
 }
 header.search-header h5 {border-bottom: 1px solid #BABCBE; padding-bottom: 5px; width:240px;}
 
-.entry-content a {color: #B43018;}
 .entry-content .disclosure-container {font-size:12px; color:#4F4C4D; font-family: @sans;}
 .entry-content .disclosure-container a {color: #4F4C4D;}
 .entry-content .disclosure-container a:hover {color: #B43018;}
@@ -446,13 +456,6 @@ input[name="ns_widget_mailchimp_email"] {
 #sidebar .widget.widget_wmp_widget li:last-child hr {display: none!important;}
 
 
-.stories h2.entry-title {
-  font-size: 24px;
-  margin-bottom: 8px;
-  line-height: 1.1;
-  font-weight:normal;
-}
-
 .byline {
   font-weight: normal;
   font-family: @sans;
@@ -505,19 +508,6 @@ input[name="ns_widget_mailchimp_email"] {
       margin-right: 5px;
     }
   }
-}
-
-.stories .entry-content,
-.stories .entry-content p {
-  font-size: 14.4px;
-  line-height: 18px;
-}
-
-.stories .entry-content p {margin-bottom: 9px;}
-
-.stories article {
-  border: none;
-  margin-bottom: 12px;
 }
 
 article img.attachment-category {
@@ -825,20 +815,8 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 
   #popout-box {width:200px;}
 
-  #site-footer {
-    width:100%;
-    padding:0;
-  }
-  #sidebar,
-  #site-footer .widget-area {
-    clear: both;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
   #ad-banner, #secondary-nav-centered {width: 100%!important;}
 
-  #site-header img { margin: 5px 0 19px 5px!important;}
   #top_about_section {background: none!important; width:140px!important; font-size: 12px!important; letter-spacing: 0!important;}
   #top_about_section .textwidget a {color: #595953!important;}
   #social_media {margin-top: 10px!important; width: auto;}

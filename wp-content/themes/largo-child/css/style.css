@@ -406,7 +406,7 @@ body {
   color: #333;
 }
 a {
-  color: #4e4c4d;
+  color: #B43018;
   text-decoration: none;
 }
 a::hover {
@@ -712,9 +712,20 @@ p.wp-caption-text {
 h5,
 h5 a,
 h5.top-tag a,
-.stories h3,
 .entry-content h4 {
   color: #B43018;
+}
+.entry-title {
+  font-weight: normal;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.entry-title a {
+  color: inherit;
+}
+.entry-title a:hover {
+  color: inherit;
+  text-decoration: underline;
 }
 .entry-title h3 {
   text-transform: uppercase;
@@ -751,9 +762,6 @@ header.search-header h5 {
   border-bottom: 1px solid #BABCBE;
   padding-bottom: 5px;
   width: 240px;
-}
-.entry-content a {
-  color: #B43018;
 }
 .entry-content .disclosure-container {
   font-size: 12px;
@@ -865,12 +873,6 @@ input[name="ns_widget_mailchimp_email"] {
 #sidebar .widget.widget_wmp_widget li:last-child hr {
   display: none!important;
 }
-.stories h2.entry-title {
-  font-size: 24px;
-  margin-bottom: 8px;
-  line-height: 1.1;
-  font-weight: normal;
-}
 .byline {
   font-weight: normal;
   font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
@@ -931,18 +933,6 @@ input[name="ns_widget_mailchimp_email"] {
   width: 2%;
   float: left;
   margin-right: 5px;
-}
-.stories .entry-content,
-.stories .entry-content p {
-  font-size: 14.4px;
-  line-height: 18px;
-}
-.stories .entry-content p {
-  margin-bottom: 9px;
-}
-.stories article {
-  border: none;
-  margin-bottom: 12px;
 }
 article img.attachment-category {
   float: left;
@@ -1408,23 +1398,9 @@ img.school_thumbnail {
   #popout-box {
     width: 200px;
   }
-  #site-footer {
-    width: 100%;
-    padding: 0;
-  }
-  #sidebar,
-  #site-footer .widget-area {
-    clear: both;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
   #ad-banner,
   #secondary-nav-centered {
     width: 100%!important;
-  }
-  #site-header img {
-    margin: 5px 0 19px 5px!important;
   }
   #top_about_section {
     background: none!important;
