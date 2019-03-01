@@ -1257,7 +1257,7 @@ img.school_thumbnail {
 }
 .report-card-grade {
   display: block;
-  margin-top: 20px;
+  line-height: 1;
 }
 .report-card-label {
   width: 55%;
