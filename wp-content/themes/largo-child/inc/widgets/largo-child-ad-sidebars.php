@@ -8,7 +8,7 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 	/**
 	 * Widget setup.
 	 */
-	function largo_child_ad_sidebars_widget() {
+	public function __construct() {
 		/* Widget settings. */
 		$widget_ops = array(
 			'classname' 	=> 'largo-child-ad-sidebars',
@@ -16,21 +16,21 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 		);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'largo-child-ad-sidebars-widget', __('Largo Child Ad Sidebars', 'largo'), $widget_ops );
+		parent::__construct( 'largo-child-ad-sidebars-widget', __('Largo Child Ad Sidebars', 'largo'), $widget_ops );
 		$this->alt_option_name = 'largo_child_ad_sidebars';
 
 		add_action( 'ad_sidebar_post', array(&$this, 'flush_widget_cache') );
 		add_action( 'transition_ad_sidebar_status', array(&$this, 'flush_widget_cache') );
 	}
 
-	function flush_widget_cache() {
+	public function flush_widget_cache() {
 		wp_cache_delete('largo_child_ad_sidebars', 'widget');
 	}
 
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		global $adSidebars, $adSidebar;
 
 		$cache = wp_cache_get('largo_child_ad_sidebars', 'widget');
@@ -79,7 +79,7 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 			foreach ( (array) $adsidebars as $adsidebar) {
 				$output .=  $adsidebar->post_content;
 			}
- 		}
+		}
 		$output .= $after_widget;
 
 		echo $output;
@@ -90,7 +90,7 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 	/**
 	 * Update the widget settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['number'] = absint( $new_instance['number'] );
@@ -112,7 +112,7 @@ class largo_child_ad_sidebars_widget extends WP_Widget {
 	/**
 	 * Displays the widget settings controls on the widget panel.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 
 		/* Set up some default widget settings. */
 		$defaults = array(

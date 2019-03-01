@@ -1,9 +1,18 @@
 <?php
 /*
- Template Name: Search Documents
+ * Template Name: Search Documents
+ * Description: Displays a DocumentCloud search interface.
+ *
+ * Example page: 42944
  */
 
 get_header(); ?>
+<div id="content" class="stories search-results span8" role="main">
+	<div id="doccloud_results_container"><img src="<?php echo home_url('/wp-content/themes/largo-child/images/ajax-loader.gif');?>" alt="Loading..." /></div>
+</div><!--/.grid_8 #content-->
+
+<?php get_sidebar(); ?>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
         var fullMonthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -25,7 +34,7 @@ get_header(); ?>
                 html += '<article class="argolinks type-argolinks status-publish hentry clearfix">';
                 html += '<header class="search-header">';
                 html += '<h5 class="documents"><a href="/documents">Documents</a></h5>';
-                html += '<h3><a rel="bookmark" title="' + data.documents[i].title + '" href="' + data.documents[i].canonical_url + '" target="_blank">';
+                html += '<h3 class="entry-title"><a rel="bookmark" title="' + data.documents[i].title + '" href="' + data.documents[i].canonical_url + '" target="_blank">';
                 html += data.documents[i].title + '</a>';
                 html += '</h3><div class="post-meta"></div></header>';
                 html += '<div class="entry-content">';
@@ -51,13 +60,5 @@ get_header(); ?>
         }
     });
 </script>
-        <div id="content" class="stories search-results span8" role="main">
 
-            <div id="doccloud_results_container"><img src="<?php echo home_url('/wp-content/themes/largo-child/images/ajax-loader.gif');?>" alt="Loading..." /></div>
-
-            </div><!--/.grid_8 #content-->
-
-<div id="sidebar" class="span4">
-<?php get_sidebar(); ?>
-</div><!-- /.grid_4 -->
 <?php get_footer(); ?>

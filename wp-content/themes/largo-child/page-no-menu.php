@@ -1,20 +1,9 @@
 <?php
 /*
-Template Name: Page (No Menu)
+ * Template Name: Page (No Menu)
+ *
+ * Differs from page-no-menu.php in that this does not add the lens_sidebar_page_nav action.
+ * Is the same as Largo's page.php.
 */
 
-get_header(); 
-
-?>
-
-<div id="content" class="span8" role="main">
-	
-	<?php the_post(); ?>
-	<?php get_template_part( 'content', 'page' ); ?>
-
-</div><!-- /.grid_8 #content -->
-<aside id="sidebar" class="span4">
-<?php get_sidebar(); ?>
-</aside>
-<!-- /.grid_4 -->
-<?php get_footer(); ?>
+locate_template( 'single.php', true );

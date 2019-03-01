@@ -22,7 +22,7 @@ class largo_child_mailchimp extends WP_Widget {
 	 * @author James Lafferty
 	 * @since 0.1
 	 */
-	public function largo_child_mailchimp () {
+	public function __construct() {
 		if (is_plugin_active('mailchimp-widget/mailchimp-widget.php')) {
 			$this->default_failure_message = __('There was a problem processing your submission.');
 			$this->default_signup_text = __('Join now!');
@@ -30,7 +30,8 @@ class largo_child_mailchimp extends WP_Widget {
 			$this->default_success_message = __('Thank you for joining our mailing list. Please check your email for a confirmation link.');
 			$this->default_title = __('Sign up for our mailing list.');
 			$widget_options = array('classname' => 'widget_ns_mailchimp', 'description' => __( "Displays a sign-up form for a MailChimp mailing list.", 'mailchimp-widget'));
-			$this->WP_Widget('ns_widget_mailchimp', __('Largo Child MailChimp List Signup', 'mailchimp-widget'), $widget_options);
+
+			parent::__construct('ns_widget_mailchimp', __('Largo Child MailChimp List Signup', 'mailchimp-widget'), $widget_options);
 			$this->ns_mc_plugin = NS_MC_Plugin::get_instance();
 			$this->default_loader_graphic = get_bloginfo('wpurl') . $this->default_loader_graphic;
 			add_action('init', array(&$this, 'add_scripts'));
@@ -88,13 +89,15 @@ class largo_child_mailchimp extends WP_Widget {
 					<p>
 						<label for="<?php echo $this->get_field_id('current_mailing_list'); ?>"><?php echo __('Select a Mailing List :', 'mailchimp-widget'); ?></label>
 						<select class="widefat" id="<?php echo $this->get_field_id('current_mailing_list');?>" name="<?php echo $this->get_field_name('current_mailing_list'); ?>">
-			<?php	
+			<?php
+
 			foreach ($this->lists['data'] as $key => $value) {
 				$selected = (isset($current_mailing_list) && $current_mailing_list == $value['id']) ? ' selected="selected" ' : '';
-				?>	
+				?>
 						<option <?php echo $selected; ?>value="<?php echo $value['id']; ?>"><?php echo __($value['name'], 'mailchimp-widget'); ?></option>
 				<?php
 			}
+
 			?>
 						</select>
 					</p>
