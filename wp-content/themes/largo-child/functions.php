@@ -24,21 +24,6 @@ foreach ( $includes as $include ) {
 	}
 }
 
-function get_current_template( $echo = false ) {
-    if( !isset( $GLOBALS['current_theme_template'] ) )
-        return false;
-    if( $echo )
-        echo $GLOBALS['current_theme_template'];
-    else
-        return $GLOBALS['current_theme_template'];
-}
-
-// Remove Links admin menu item
-add_action( 'admin_menu', 'my_remove_menu_pages' );
-function my_remove_menu_pages() {
-	remove_menu_page('link-manager.php');
-}
-
 // Configure CPT-onomies school taxonomy display as list, not autocomplete on post edit
 add_filter( 'custom_post_type_onomies_meta_box_format', 'schools_custom_post_type_onomies_meta_box_format', 1, 3 );
 function schools_custom_post_type_onomies_meta_box_format( $format, $taxonomy, $post_type ) {
@@ -61,17 +46,6 @@ function largo_child_prev_attr() {
 add_action( 'wp_loaded', 'largo_child_rewrite_rules' );
 function largo_child_rewrite_rules() {
    add_rewrite_rule( '^school/([^\/]+)/feed/?$','index.php?feed=feed&school=$matches[1]&cpt_onomy_archive=1', 'top' );
-}
-
-function largo_child_comments()
-{
-	if (get_comments_number() >= 1) {
-		echo '<a href="';
-		the_permalink();
-		echo '#comments">';
-		comments_number('No comments','1 comment','% comments');
-		echo '</a>';
-	}
 }
 
 function largo_child_get_parents()
