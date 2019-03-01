@@ -1,6 +1,7 @@
 @import (reference) 'variables.less';
 @import "woocommerce.less";
 @import "header.less";
+@import "footer.less";
 @import "breakout.less";
 @import "csrc.less";
 @import "widgets.less";
@@ -14,7 +15,7 @@ body {
 a {
   color: @brick;
   text-decoration: none;
-  &::hover {
+  &:hover {
     color: #221f1f;
     text-decoration: underline;
   }
@@ -148,10 +149,6 @@ p.wp-caption-text {
   border:0;
 }
 
-.row-fluid [class*="span"] {
-  margin-left: 0;
-}
-
 #related-posts {
   border: 1px solid #eeeeee;
   border-top: 1px solid #999999;
@@ -179,18 +176,6 @@ p.wp-caption-text {
 	margin: 0 auto;
 }
 
-#site-footer {
-	margin: 0 auto;
-	max-width: 1170px;
-	#boilerplate {
-		a,
-		p {
-			color: @black;
-		}
-		a:hover {
-		}
-	}
-}
 
 #top_about_section {
 	float: right;
@@ -302,11 +287,6 @@ p.wp-caption-text {
   }
 }
 
-.directive {
-	font-size:.7em;
-	vertical-align:top;
-}
-
 h5,
 h5 a,
 h5.top-tag a,
@@ -358,11 +338,6 @@ h5.top-tag {
   border-bottom: none;
 }
 
-
-
-.subcategory-featured header h5 {
-  font-size:14px;
-}
 header.search-header h5 {border-bottom: 1px solid #BABCBE; padding-bottom: 5px; width:240px;}
 
 .entry-content .disclosure-container {font-size:12px; color:#4F4C4D; font-family: @sans;}
@@ -552,76 +527,12 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 #doccloud_results_container {font-family: @sans;}
 #story_results_container h3, #doccloud_results_container h3 {text-transform: none; font-size: 22px;}
 
-.footer-bg {
-  background-color: #a7a199;
-  background-image: -moz-linear-gradient(top, #928c85, #a7a199);
-  background-image: -ms-linear-gradient(top, #928c85, #a7a199);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#928c85), to(#a7a199));
-  background-image: -webkit-linear-gradient(top, #928c85, #a7a199);
-  background-image: -o-linear-gradient(top, #928c85, #a7a199);
-  background-image: linear-gradient(top, #928c85, #a7a199);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#928c85', endColorstr='#a7a199', GradientType=0);
-  filter: none;
-  border: none!important;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow:none;
-  padding: 0 0 18px;
-  margin-bottom: 0;
-  margin-top: 100px;
-}
-
-#site-footer ul#menu-footer-navigation {
-  font-family: @sans;
-  list-style: none;
-  margin: 0 0 12px;
-  padding-top: 0;
-}
-
-#site-footer ul#menu-footer-navigation li {
-  margin-bottom: 0;
-  padding: 0;
-  border-bottom: none;
-  font-size: 16px;
-  color: #fff;
-}
-.footer_title {
-  color: #a7a199;
-  font-size: 95%;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  border: 0;
-  font-family: @sans;
-}
-
-.row-fluid .span4 {
-  width: 26%;
-  margin-left:0;
-  *width: 31.414893614%;
-}
-
-.sub-stories.span4 {
-  width: 300px;
-  *width: 31.414893614%;
-}
-
-.row-fluid .span8 {
-  width: 74%;
-  *width: 62.45744680199999%;
-  padding-right: 15px!important;
-}
-
-#sidebar {
-  *margin-left: 95px;
-  font-family: @sans;
-}
-
 /*Styles for Sub-Pages--*/
 
-.school {font-size: 30px; margin-top: -20px;}
+.school {
+  font-size: 30px;
+  margin-top: -20px;
+}
 
 /*Charter Schools*/
 
@@ -800,7 +711,6 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 @media (min-width: 769px) and (max-width: 979px) {
 
   .category-featured {width: 100%!important; float: none!important;}
-  #csrc {width:92%!important; float: none!important; margin: 0!important;}
   .report-card-label {width: 47%!important; padding-top: 0!important;}
   .school-meta .help a {font-size:65%!important;}
   .school-meta .school-address {width: 46%!important;}
@@ -839,7 +749,6 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 
 	.category-featured {width: 100%!important; float: none!important;}
 	.subcategory-featured {float: none; width:auto; margin-left: 0!important; margin-right: 10px!important;}
-	#csrc {width:85%!important; float: none!important; margin: 0!important;}
 	.row-fluid .span8 {padding-right: 0!important;}
 	.global-nav .nav-right .org-logo {
 		float: right;
@@ -860,10 +769,6 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 		clear: both;
 		width: 100% !important;
 		margin: 0 !important;
-	}
-	#menu-footer-navigation li {
-		font-size: 18px;
-		padding: 8px 0;
 	}
 
 	.school-meta {padding: 0!important;}
