@@ -48,24 +48,24 @@ add_action( 'wp_head', function() {
  * Dynamic CSS classes for categories
  */
 function largo_child_categories_css() {
-		$heredoc = <<<EOF
-		<style type="text/css">
-			.what-were-reading {
-				background-image:url('%1$s');
-				background-repeat: no-repeat;
-				line-height: 19px;
-				padding: 2px 0 3px 25px;
-			}
-			.schools, .environment, .investigations, .criminal_justice {padding-top: 4px!important;}
-			.charterschools, .government-and-politics {padding-top: 3px!important;}
-			.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
-			.documents {
-				background-image:url('%2$s');
-				background-position:  left top;
-				background-repeat: no-repeat;
-				line-height: 20px;
-				padding: 0 0 5px 30px;
-			}
+	$heredoc = <<<EOF
+	<style type="text/css">
+		.what-were-reading {
+			background-image:url('%1$s');
+			background-repeat: no-repeat;
+			line-height: 19px;
+			padding: 2px 0 3px 25px;
+		}
+		.documents {
+			background-image:url('%2$s');
+			background-position:  left top;
+			background-repeat: no-repeat;
+			line-height: 20px;
+			padding: 0 0 5px 30px;
+		}
+		.schools, .environment, .investigations, .criminal_justice {padding-top: 4px!important;}
+		.charterschools, .government-and-politics {padding-top: 3px!important;}
+		.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
 EOF;
 	printf(
 		$heredoc,
