@@ -74,70 +74,73 @@ class largo_child_mailchimp extends WP_Widget {
 				'collect_first' => false,
 				'collect_last' => false,
 				'old_markup' => false,
-				'widget_class' 		=> 'default',
-				'hidden_desktop'	=> '',
-				'hidden_tablet' 	=> '',
-				'hidden_phone'		=> ''
 			);
 			$vars = wp_parse_args($instance, $defaults);
-			$desktop = $vars['hidden_desktop'] ? 'checked="checked"' : '';
-			$tablet = $vars['hidden_tablet'] ? 'checked="checked"' : '';
-			$phone = $vars['hidden_phone'] ? 'checked="checked"' : '';
-			
+
+			// @todo: Remove
 			extract($vars);
-			
-			?>
-					<h3><?php echo  __('General Settings', 'mailchimp-widget'); ?></h3>
-					<p>
-						<label for="<?php echo $this->get_field_id('title'); ?>"><?php echo  __('Title HTML:', 'mailchimp-widget'); ?></label>
-						<textarea class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>"><?php echo $title; ?></textarea>
-					</p>
-					<p>
-						<label for="<?php echo $this->get_field_id('current_mailing_list'); ?>"><?php echo __('Select a Mailing List :', 'mailchimp-widget'); ?></label>
-						<select class="widefat" id="<?php echo $this->get_field_id('current_mailing_list');?>" name="<?php echo $this->get_field_name('current_mailing_list'); ?>">
-			<?php
-
-			foreach ($this->lists['data'] as $key => $value) {
-				$selected = (isset($current_mailing_list) && $current_mailing_list == $value['id']) ? ' selected="selected" ' : '';
-				?>
-						<option <?php echo $selected; ?>value="<?php echo $value['id']; ?>"><?php echo __($value['name'], 'mailchimp-widget'); ?></option>
-				<?php
-			}
 
 			?>
-						</select>
-					</p>
-					<p><strong>N.B.</strong><?php echo  __('This is the list your users will be signing up for in your sidebar.', 'mailchimp-widget'); ?></p>
-					<p>
-						<label for="<?php echo $this->get_field_id('signup_text'); ?>"><?php echo __('Sign Up Button Text :', 'mailchimp-widget'); ?></label>
-						<input class="widefat" id="<?php echo $this->get_field_id('signup_text'); ?>" name="<?php echo $this->get_field_name('signup_text'); ?>" value="<?php echo $signup_text; ?>" />
-					</p>
-					<p>
-						<label for="<?php echo $this->get_field_id('signup_class'); ?>"><?php echo __('Sign Up Button Class:', 'mailchimp-widget'); ?></label>
-						<input class="widefat" id="<?php echo $this->get_field_id('signup_class'); ?>" name="<?php echo $this->get_field_name('signup_class'); ?>" value="<?php echo $signup_class; ?>" />
-					</p>
-					<h3><?php echo __('Personal Information', 'mailchimp-widget'); ?></h3>
-					<p><?php echo __("These fields won't (and shouldn't) be required. Should the widget form collect users' first and last names?", 'mailchimp-widget'); ?></p>
-					<p>
-						<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('collect_first'); ?>" name="<?php echo $this->get_field_name('collect_first'); ?>" <?php echo  checked($collect_first, true, false); ?> />
-						<label for="<?php echo $this->get_field_id('collect_first'); ?>"><?php echo  __('Collect first name.', 'mailchimp-widget'); ?></label>
-						<br />
-						<input type="checkbox" class="checkbox" id="<?php echo  $this->get_field_id('collect_last'); ?>" name="<?php echo $this->get_field_name('collect_last'); ?>" <?php echo checked($collect_last, true, false); ?> />
-						<label><?php echo __('Collect last name.', 'mailchimp-widget'); ?></label>
-					</p>
-					<h3><?php echo __('Notifications', 'mailchimp-widget'); ?></h3>
-					<p><?php echo  __('Use these fields to customize what your visitors see after they submit the form', 'mailchimp-widget'); ?></p>
-					<p>
-						<label for="<?php echo $this->get_field_id('success_message'); ?>"><?php echo __('Success :', 'mailchimp-widget'); ?></label>
-						<textarea class="widefat" id="<?php echo $this->get_field_id('success_message'); ?>" name="<?php echo $this->get_field_name('success_message'); ?>"><?php echo $success_message; ?></textarea>
-					</p>
-					<p>
-						<label for="<?php echo $this->get_field_id('failure_message'); ?>"><?php echo __('Failure :', 'mailchimp-widget'); ?></label>
-						<textarea class="widefat" id="<?php echo $this->get_field_id('failure_message'); ?>" name="<?php echo $this->get_field_name('failure_message'); ?>"><?php echo $failure_message; ?></textarea>
-					</p>
+				<h3><?php echo  __('General Settings', 'mailchimp-widget'); ?></h3>
+				<p>
+					<label for="<?php echo $this->get_field_id('title'); ?>"><?php echo  __('Title HTML:', 'mailchimp-widget'); ?></label>
+					<textarea class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>"><?php echo $title; ?></textarea>
+				</p>
 
-					<label for="<?php echo $this->get_field_id( 'widget_class' ); ?>"><?php _e('Widget Class', 'largo'); ?></label>
-					<input class="widefat" id="<?php echo $this->get_field_id('widget_class'); ?>" name="<?php echo $this->get_field_name('widget_class'); ?>" value="<?php echo $widget_class; ?>" />
+				<p>
+					<label for="<?php echo $this->get_field_id('current_mailing_list'); ?>"><?php echo __('Select a Mailing List :', 'mailchimp-widget'); ?></label>
+					<select class="widefat" id="<?php echo $this->get_field_id('current_mailing_list');?>" name="<?php echo $this->get_field_name('current_mailing_list'); ?>">
+						<?php
+
+							foreach ($this->lists['data'] as $key => $value) {
+								$selected = (isset($current_mailing_list) && $current_mailing_list == $value['id']) ? ' selected="selected" ' : '';
+								?>
+										<option <?php echo $selected; ?>value="<?php echo $value['id']; ?>"><?php echo __($value['name'], 'mailchimp-widget'); ?></option>
+								<?php
+							}
+
+						?>
+					</select>
+				</p>
+
+				<p>
+					<strong>N.B.</strong><?php echo  __('This is the list your users will be signing up for in your sidebar.', 'mailchimp-widget'); ?>
+				</p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id('signup_text'); ?>"><?php echo __('Sign Up Button Text :', 'mailchimp-widget'); ?></label>
+					<input class="widefat" id="<?php echo $this->get_field_id('signup_text'); ?>" name="<?php echo $this->get_field_name('signup_text'); ?>" value="<?php echo $signup_text; ?>" />
+				</p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id('signup_class'); ?>"><?php echo __('Sign Up Button Class:', 'mailchimp-widget'); ?></label>
+					<input class="widefat" id="<?php echo $this->get_field_id('signup_class'); ?>" name="<?php echo $this->get_field_name('signup_class'); ?>" value="<?php echo $signup_class; ?>" />
+				</p>
+
+				<h3><?php echo __('Personal Information', 'mailchimp-widget'); ?></h3>
+				<p><?php echo __("These fields won't (and shouldn't) be required. Should the widget form collect users' first and last names?", 'mailchimp-widget'); ?></p>
+
+				<p>
+					<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('collect_first'); ?>" name="<?php echo $this->get_field_name('collect_first'); ?>" <?php echo  checked($collect_first, true, false); ?> />
+					<label for="<?php echo $this->get_field_id('collect_first'); ?>"><?php echo  __('Collect first name.', 'mailchimp-widget'); ?></label>
+					<br />
+					<input type="checkbox" class="checkbox" id="<?php echo  $this->get_field_id('collect_last'); ?>" name="<?php echo $this->get_field_name('collect_last'); ?>" <?php echo checked($collect_last, true, false); ?> />
+					<label><?php echo __('Collect last name.', 'mailchimp-widget'); ?></label>
+				</p>
+
+				<h3><?php echo __('Notifications', 'mailchimp-widget'); ?></h3>
+				<p><?php echo  __('Use these fields to customize what your visitors see after they submit the form', 'mailchimp-widget'); ?></p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id('success_message'); ?>"><?php echo __('Success :', 'mailchimp-widget'); ?></label>
+					<textarea class="widefat" id="<?php echo $this->get_field_id('success_message'); ?>" name="<?php echo $this->get_field_name('success_message'); ?>"><?php echo $success_message; ?></textarea>
+				</p>
+
+				<p>
+					<label for="<?php echo $this->get_field_id('failure_message'); ?>"><?php echo __('Failure :', 'mailchimp-widget'); ?></label>
+					<textarea class="widefat" id="<?php echo $this->get_field_id('failure_message'); ?>" name="<?php echo $this->get_field_name('failure_message'); ?>"><?php echo $failure_message; ?></textarea>
+				</p>
+
 			<?php
 		}
 	}
@@ -312,23 +315,25 @@ class largo_child_mailchimp extends WP_Widget {
 			if ($this->successful_signup) {
 				echo $this->signup_success_message;
 			} else {
-				?>	
-                <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" id="<?php echo $this->id_base . '_form-' . $this->number; ?>" method="post">
-					<?php echo $this->subscribe_errors;?>
-					<?php	
-						if ($instance['collect_first']) {
-					?>	
-					<label><?php echo __('First Name :', 'mailchimp-widget'); ?><input type="text" name="<?php echo $this->id_base . '_first_name'; ?>" /></label>
-					<br />
-					<?php
-						}
-						if ($instance['collect_last']) {
-					?>	
-					<label><?php echo __('Last Name :', 'mailchimp-widget'); ?><input type="text" name="<?php echo $this->id_base . '_last_name'; ?>" /></label>
-					<br />
-					<?php	
-						}
-					?>
+				?>
+					<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" id="<?php echo $this->id_base . '_form-' . $this->number; ?>" method="post">
+						<?php
+							echo $this->subscribe_errors;
+
+							if ($instance['collect_first']) {
+								?>
+									<label><?php echo __('First Name :', 'mailchimp-widget'); ?><input type="text" name="<?php echo $this->id_base . '_first_name'; ?>" /></label>
+									<br />
+								<?php
+							}
+
+							if ($instance['collect_last']) {
+								?>
+									<label><?php echo __('Last Name :', 'mailchimp-widget'); ?><input type="text" name="<?php echo $this->id_base . '_last_name'; ?>" /></label>
+									<br />
+								<?php
+							}
+						?>
 						<input type="hidden" name="ns_mc_number" value="<?php echo $this->number; ?>" />
 						<input id="<?php echo $this->id_base; ?>-email-<?php echo $this->number; ?>" type="text" name="<?php echo $this->id_base; ?>_email" />
 						<input class="button" type="submit" id="mailchimp_sumbit" name="<?php echo __($instance['signup_text'], 'mailchimp-widget'); ?>" value="<?php echo __($instance['signup_text'], 'mailchimp-widget'); ?>" class="<?php echo __($instance['signup_class'], 'mailchimp-widget'); ?>" />
