@@ -450,14 +450,6 @@ p.wpsc_email_address_p input,
  *    - the conditions for the removal of the hack
  *
  */
-/*
- * Hide "module" pull quotes
- *
- * Remove when https://github.com/INN/largo/issues/1639 and therefore https://github.com/INN/umbrella-lensnola/issues/12 are fixed.
- */
-.module.pull-quote {
-  display: none;
-}
 body {
   font-family: "minion-pro", Georgia, "Times New Roman", Times, serif;
   color: #333;
