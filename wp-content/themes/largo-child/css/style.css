@@ -752,6 +752,7 @@ p.wp-caption-text {
 }
 h5,
 h5 a,
+#dark-top h5 span a,
 h5.top-tag a,
 .entry-content h4 {
   color: #B43018;
