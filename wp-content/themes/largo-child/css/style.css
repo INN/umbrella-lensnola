@@ -829,6 +829,16 @@ header.search-header h5 {
   background-color: #B43018;
   color: #FFFFFF;
 }
+#sidebar .form-search .input-append {
+  display: flex;
+  flex-wrap: nowrap;
+}
+#sidebar .form-search .input-append input {
+  flex: 1 1 auto;
+}
+#sidebar .form-search .input-append button {
+  flex: 0 0 auto;
+}
 #sidebar .largo-child-find-school h3,
 #sidebar .largo-child-find-school a {
   color: #FFFFFF;
