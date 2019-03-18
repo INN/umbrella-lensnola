@@ -48,8 +48,10 @@ add_action( 'wp_head', function() {
  * Dynamic CSS classes for categories
  */
 function largo_child_categories_css() {
-	$nowdoc = <<<'EOF'
-	<style type="text/css">
+	echo '<style type="text/css" id="largo_child_categories_css">';
+
+	// Used to output certain per-category styles
+	$what_nowdoc = <<<'EOF'
 		.what-were-reading {
 			background-image: url( '%1$s' );
 			background-repeat: no-repeat;
@@ -63,27 +65,60 @@ function largo_child_categories_css() {
 			line-height: 20px;
 			padding: 0 0 5px 30px;
 		}
-		.schools, .environment, .investigations, .criminal_justice {padding-top: 4px!important;}
-		.charterschools, .government-and-politics {padding-top: 3px!important;}
-		.squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
+		.squandered-heritage, h5.top-tag .category-squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
 EOF;
 	printf(
-		$nowdoc,
+		$what_nowdoc,
 		home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png'),
 		home_url('/wp-content/themes/largo-child/images/icons/documents.png')
 	);
+	
+	// some more per-term spacing
+	foreach ( array( 'schools', 'environment', 'investigations', 'criminal_justice' ) as $term ) {
+		printf(
+			'.%1$s, h5.top-tag .category-%1$s { padding-top: 4px!important; }',
+			$term
+		);
+	}
+	foreach ( array( 'charterschools', 'government-and-politics' ) as $term ) {
+		printf(
+			'.%1$s, h5.top-tag .category-%1$s { padding-top: 3px!important; }',
+			$term
+		);
+	}
+
+	// Used to output per-category styles
+	$category_nowdoc = <<<'EOF'
+	%1$s {
+		background-image:url('%2$s');
+		background-position:  left top;
+		background-repeat: no-repeat;
+		line-height: 22px;
+		padding: 0 0 5px 30px;
+	}
+EOF;
+
 	$categories = get_categories();
 	foreach ($categories as $category) {
-		if (file_exists('wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')) {
+		$path = sprintf(
+			'/images/icons/%1$s.png',
+			$category->slug
+		);
+		if (file_exists( get_stylesheet_directory() . $path ) ) {
+			printf(
+				$category_nowdoc,
+				sprintf(
+					'.%1$s, h5.top-tag .%2$s',
+					$category->slug,
+					$category->taxonomy . '-' . $category->slug
+				),
+				get_stylesheet_directory_uri() . $path
+			);
 			echo '.' . $category->slug . " {
-				background-image:url('".home_url('/wp-content/themes/largo-child/images/icons/'.$category->slug.'.png')."');
-				background-position:  left top;
-				background-repeat: no-repeat;
-				line-height: 22px;
-				padding: 0 0 5px 30px;
 				}\n";
 		}
 	}
-	echo '</style>'; // started in that EOF block.
+
+	echo '</style>'; 
 }
 add_action( 'wp_head', 'largo_child_categories_css' );
