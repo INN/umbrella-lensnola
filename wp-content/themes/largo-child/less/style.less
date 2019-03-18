@@ -6,6 +6,7 @@
 @import "csrc.less";
 @import "widgets.less";
 @import "sidebar_more_coverage.less";
+@import "post.less";
 @import "hacks.less";
 
 body {
@@ -203,15 +204,6 @@ p.wp-caption-text {
 #social_media {padding-bottom: 20px; width: 180px; margin: 40px auto 0;}
 #social_media img {padding: 0 15px;}
 
-.social-icons.rss24 {
-    background-position: 0;
-    background: url("../images/rss_red_icon.png") no-repeat scroll 0 0 transparent;
-}
-.social-icons {
-    display: block;
-    height: 24px;
-    width: 24px;
-}
 
 #call_to_action {height: 21px; width: 100%; margin: 25px auto 0;}
 #call_to_action a {display:block; float:left; width:50%; text-align:center;}
@@ -290,6 +282,7 @@ p.wp-caption-text {
 
 h5,
 h5 a,
+#dark-top h5 span a,
 h5.top-tag a,
 .entry-content h4 {
   color: #B43018;
@@ -297,7 +290,6 @@ h5.top-tag a,
 
 .entry-title {
   font-weight: normal;
-  margin-top: 0.5em;
   margin-bottom: 0.5em;
   a {
     color: inherit;
@@ -317,6 +309,9 @@ h5.top-tag a,
 	font-weight: normal;
 }
 
+.archive-background h1.page-title {
+  font-size: 22px; // see https://github.com/INN/umbrella-lensnola/pull/21#issuecomment-474119879
+}
 .subcategory-featured header h5,
 article header h5,
 header.search-header h5 {
@@ -366,6 +361,16 @@ header.search-header h5 {border-bottom: 1px solid #BABCBE; padding-bottom: 5px; 
 #sidebar .widget_search, #sidebar .largo-child-find-school {
 	background-color: #B43018;
 	color:#FFFFFF;
+}
+#sidebar .form-search .input-append {
+  display: flex;
+  flex-wrap: nowrap;
+  input {
+    flex: 1 1 auto;
+  }
+  button {
+    flex: 0 0 auto;
+  }
 }
 
 #sidebar .largo-child-find-school h3,
@@ -442,6 +447,9 @@ input[name="ns_widget_mailchimp_email"] {
     color: #221F1F;
     font-weight: normal;
   }
+}
+.opinion-label + .by-author .by {
+  text-transform: lowercase;
 }
 
 .opinion-label {text-transform:uppercase; color: #B43018; font-weight:bold; font-size: 13px;}
@@ -547,28 +555,55 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 	line-height: 21px!important;
 
 }
+
+#nav-below{
+  margin-bottom: 6em;
+}
 .pager a {
-  display: inline-block;
-  padding: 5px 14px;
+  display: block;
+  height: 2em;
+  line-height: 2;
+  vertical-align: middle;
   border:none;
   color: #a7a199;
   text-transform:uppercase;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-.pager a:hover {
-  text-decoration: underline;
   background-color: #fff;
-  text-shadow: none;
-  color: #b43018;
+  &:hover {
+    background-color: #fff;
+    text-decoration: underline;
+    text-shadow: none;
+    color: #b43018;
+  }
+
+  // these will be overridden below
+  border-radius: 0;
+  padding: 0;
+
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+
+  &.next_link {
+    background-image: url(../images/next_arrow_off.png);
+    background-position: right 0.5em center;
+    padding-right: 2.5em;
+    text-align: right; // so the text is near the button
+    float: right;
+    &:hover {
+      background-image: url(../images/next_arrow_on.png);
+    }
+  }
+
+  &.prev_link {
+    background-image: url(../images/previous_arrow_off.png);
+    background-position: left 0.5em center;
+    padding-left: 2.5em;
+    float: left;
+    &:hover {
+      background-image: url(../images/previous_arrow_on.png);
+    }
+  }
+
 }
-
-.next_link {display: block; background: url(../images/next_arrow_off.png) no-repeat; background-position: 200px 0px; width: 210px; float: right;}
-.next_link:hover {background-image: url(../images/next_arrow_on.png);}
-
-.prev_link {background: url(../images/previous_arrow_off.png) no-repeat; background-position: 3px 0px; width: 190px; float: left;}
-.prev_link:hover {background-image: url(../images/previous_arrow_on.png);}
 
 .charter-copy {font-family: @sans; font-style:italic;}
 
@@ -745,19 +780,6 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 		float: none;
 		width: 100%;
 		margin: 0 0 24px;
-	}
-
-
-	.category-featured {width: 100%!important; float: none!important;}
-	.subcategory-featured {float: none; width:auto; margin-left: 0!important; margin-right: 10px!important;}
-	.row-fluid .span8 {padding-right: 0!important;}
-	.global-nav .nav-right .org-logo {
-		float: right;
-	}
-	h1.entry-title,
-	h1.page-title {
-		font-size: 32px;
-		line-height: 1.2;
 	}
 
 	.stories h2.entry-title,

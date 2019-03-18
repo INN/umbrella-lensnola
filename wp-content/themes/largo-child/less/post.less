@@ -1,0 +1,9 @@
+
+// Override Largo's article top tag positioning so it's not out of CSS flow
+body.normal.page article.page>header h5.top-tag,
+body.normal.page article.post>header h5.top-tag,
+body.normal.single-post article.page>header h5.top-tag,
+body.normal.single-post article.post>header h5.top-tag {
+  position: static;
+  left: unset;
+}
