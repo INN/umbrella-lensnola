@@ -52,24 +52,18 @@ function largo_child_categories_css() {
 
 	// Used to output certain per-category styles
 	$what_nowdoc = <<<'EOF'
-		.what-were-reading {
-			background-image: url( '%1$s' );
-			background-repeat: no-repeat;
-			line-height: 19px;
-			padding: 2px 0 3px 25px;
-		}
 		.documents {
-			background-image: url( '%2$s' );
+			background-image: url( '%1$s' );
 			background-position:  left top;
 			background-repeat: no-repeat;
 			line-height: 20px;
 			padding: 0 0 5px 30px;
 		}
 		.squandered-heritage, h5.top-tag .category-squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
+
 EOF;
 	printf(
 		$what_nowdoc,
-		home_url('/wp-content/themes/largo-child/images/icons/government-and-politics.png'),
 		home_url('/wp-content/themes/largo-child/images/icons/documents.png')
 	);
 	
