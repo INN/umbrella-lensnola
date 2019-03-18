@@ -85,10 +85,11 @@ EOF;
 	$category_nowdoc = <<<'EOF'
 	%1$s {
 		background-image:url('%2$s');
-		background-position:  left top;
+		background-position:  left center;
 		background-repeat: no-repeat;
-		line-height: 22px;
-		padding: 0 0 5px 30px;
+		background-size: 1em;
+		padding: 0 0 0 1.3em;
+		vertical-align: middle;
 	}
 EOF;
 
@@ -102,7 +103,7 @@ EOF;
 			printf(
 				$category_nowdoc,
 				sprintf(
-					'.%1$s, h5.top-tag .%2$s',
+					'.%1$s, h5.top-tag .%2$s, .%2$s .archive-background .page-title',
 					$category->slug,
 					$category->taxonomy . '-' . $category->slug
 				),
