@@ -915,6 +915,9 @@ input[name="ns_widget_mailchimp_email"] {
   color: #221F1F;
   font-weight: normal;
 }
+.opinion-label + .by-author .by {
+  text-transform: lowercase;
+}
 .opinion-label {
   text-transform: uppercase;
   color: #B43018;
