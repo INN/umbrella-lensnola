@@ -70,13 +70,13 @@ EOF;
 	// some more per-term spacing
 	foreach ( array( 'schools', 'environment', 'investigations', 'criminal_justice' ) as $term ) {
 		printf(
-			'.%1$s, h5.top-tag .category-%1$s { padding-top: 4px!important; }',
+			'.%1$s, h5.top-tag .category-%1$s { padding-top: 4px!important; }' . "\n",
 			$term
 		);
 	}
 	foreach ( array( 'charterschools', 'government-and-politics' ) as $term ) {
 		printf(
-			'.%1$s, h5.top-tag .category-%1$s { padding-top: 3px!important; }',
+			'.%1$s, h5.top-tag .category-%1$s { padding-top: 3px!important; }' . "\n",
 			$term
 		);
 	}
