@@ -542,28 +542,55 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 	line-height: 21px!important;
 
 }
+
+#nav-below{
+  margin-bottom: 4em;
+}
 .pager a {
-  display: inline-block;
-  padding: 5px 14px;
+  display: block;
+  height: 2em;
+  line-height: 2;
+  vertical-align: middle;
   border:none;
   color: #a7a199;
   text-transform:uppercase;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-.pager a:hover {
-  text-decoration: underline;
   background-color: #fff;
-  text-shadow: none;
-  color: #b43018;
+  &:hover {
+    background-color: #fff;
+    text-decoration: underline;
+    text-shadow: none;
+    color: #b43018;
+  }
+
+  // these will be overridden below
+  border-radius: 0;
+  padding: 0;
+
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+
+  &.next_link {
+    background-image: url(../images/next_arrow_off.png);
+    background-position: right 0.5em center;
+    padding-right: 2.5em;
+    text-align: right; // so the text is near the button
+    float: right;
+    &:hover {
+      background-image: url(../images/next_arrow_on.png);
+    }
+  }
+
+  &.prev_link {
+    background-image: url(../images/previous_arrow_off.png);
+    background-position: left 0.5em center;
+    padding-left: 2.5em;
+    float: left;
+    &:hover {
+      background-image: url(../images/previous_arrow_on.png);
+    }
+  }
+
 }
-
-.next_link {display: block; background: url(../images/next_arrow_off.png) no-repeat; background-position: 200px 0px; width: 210px; float: right;}
-.next_link:hover {background-image: url(../images/next_arrow_on.png);}
-
-.prev_link {background: url(../images/previous_arrow_off.png) no-repeat; background-position: 3px 0px; width: 190px; float: left;}
-.prev_link:hover {background-image: url(../images/previous_arrow_on.png);}
 
 .charter-copy {font-family: @sans; font-style:italic;}
 

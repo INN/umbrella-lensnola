@@ -767,6 +767,9 @@ h5.top-tag a,
   font-size: 16px!important;
   font-weight: normal;
 }
+.archive-background h1.page-title {
+  font-size: 22px;
+}
 .subcategory-featured header h5,
 article header h5,
 header.search-header h5 {
@@ -1045,39 +1048,46 @@ img.school_thumbnail {
   letter-spacing: 3px!important;
   line-height: 21px!important;
 }
+#nav-below {
+  margin-bottom: 4em;
+}
 .pager a {
-  display: inline-block;
-  padding: 5px 14px;
+  display: block;
+  height: 2em;
+  line-height: 2;
+  vertical-align: middle;
   border: none;
   color: #a7a199;
   text-transform: uppercase;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
+  background-color: #fff;
   border-radius: 0;
+  padding: 0;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
 }
 .pager a:hover {
-  text-decoration: underline;
   background-color: #fff;
+  text-decoration: underline;
   text-shadow: none;
   color: #b43018;
 }
-.next_link {
-  display: block;
-  background: url(../images/next_arrow_off.png) no-repeat;
-  background-position: 200px 0px;
-  width: 210px;
+.pager a.next_link {
+  background-image: url(../images/next_arrow_off.png);
+  background-position: right 0.5em center;
+  padding-right: 2.5em;
+  text-align: right;
   float: right;
 }
-.next_link:hover {
+.pager a.next_link:hover {
   background-image: url(../images/next_arrow_on.png);
 }
-.prev_link {
-  background: url(../images/previous_arrow_off.png) no-repeat;
-  background-position: 3px 0px;
-  width: 190px;
+.pager a.prev_link {
+  background-image: url(../images/previous_arrow_off.png);
+  background-position: left 0.5em center;
+  padding-left: 2.5em;
   float: left;
 }
-.prev_link:hover {
+.pager a.prev_link:hover {
   background-image: url(../images/previous_arrow_on.png);
 }
 .charter-copy {
@@ -1407,27 +1417,6 @@ img.school_thumbnail {
     float: none;
     width: 100%;
     margin: 0 0 24px;
-  }
-  .category-featured {
-    width: 100%!important;
-    float: none!important;
-  }
-  .subcategory-featured {
-    float: none;
-    width: auto;
-    margin-left: 0!important;
-    margin-right: 10px!important;
-  }
-  .row-fluid .span8 {
-    padding-right: 0!important;
-  }
-  .global-nav .nav-right .org-logo {
-    float: right;
-  }
-  h1.entry-title,
-  h1.page-title {
-    font-size: 32px;
-    line-height: 1.2;
   }
   .stories h2.entry-title,
   .sticky-main-feature h2 {
