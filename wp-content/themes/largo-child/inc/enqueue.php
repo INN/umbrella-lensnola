@@ -114,8 +114,6 @@ EOF;
 				),
 				get_stylesheet_directory_uri() . $path
 			);
-			echo '.' . $category->slug . " {
-				}\n";
 		}
 	}
 
