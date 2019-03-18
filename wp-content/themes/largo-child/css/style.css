@@ -661,15 +661,6 @@ p.wp-caption-text {
 #social_media img {
   padding: 0 15px;
 }
-.social-icons.rss24 {
-  background-position: 0;
-  background: url("../images/rss_red_icon.png") no-repeat scroll 0 0 transparent;
-}
-.social-icons {
-  display: block;
-  height: 24px;
-  width: 24px;
-}
 #call_to_action {
   height: 21px;
   width: 100%;
