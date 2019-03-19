@@ -249,8 +249,6 @@ p.wpsc_email_address_p input,
 }
 #menu-dont-miss {
   padding-left: 10px;
-  min-height: 28px;
-  padding-bottom: 3px;
 }
 @media (max-width: 768px) {
   #ad-banner-container,
