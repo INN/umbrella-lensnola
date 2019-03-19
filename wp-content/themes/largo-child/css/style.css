@@ -193,6 +193,9 @@ p.wpsc_email_address_p input,
   display: inline;
   font-weight: 800;
 }
+#ad-banner .widget {
+  margin-bottom: 0;
+}
 #sponsor {
   float: left;
   width: 65%;
