@@ -180,23 +180,27 @@ p.wp-caption-text {
 
 
 #top_about_section {
-	float: right;
-	width: 26%;
-	background: url(../images/about_lens_bg.png) no-repeat;
-	margin: 1px 0;
-	padding-top: 8px;
-	text-align: center;
-	font-family: @sans;
-	font-size: 13px;
-	font-weight: bold;
-	text-transform:uppercase;
-	color: #fff;
-	letter-spacing: 4px;
+  float: right;
+  background-image: url(../images/about_lens_bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
 
-	a {
-		color: @white;
-	}
-	img {margin:0;}
+  width: 26%*0.96; // to match the width of the element above that is contained within a 96% width box
+  margin-right: 2%*0.96;
+
+  padding-top: 8px;
+  text-align: center;
+  font-family: @sans;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform:uppercase;
+  color: #fff;
+  letter-spacing: 4px;
+
+  a {
+    color: @white;
+  }
+  img {margin:0;}
 }
 
 
@@ -205,9 +209,26 @@ p.wp-caption-text {
 #social_media img {padding: 0 15px;}
 
 
-#call_to_action {height: 21px; width: 100%; margin: 25px auto 0;}
-#call_to_action a {display:block; float:left; width:50%; text-align:center;}
-#call_to_action a img {float:none; display:inline;}
+#call_to_action {
+  min-height: 46px;
+  width: 100%;
+  margin: 0 auto 0;
+  text-align:center;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  a {
+    display: inline-block;
+    clear: none;
+    flex: 0 0 auto;
+    img {
+      float:none;
+      display:inline;
+    }
+  }
+}
 
 .button_link {
 	background: #595953;
@@ -715,8 +736,15 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 
   #ad-banner, #secondary-nav-centered {width: 100%!important;}
 
-  #top_about_section {background: none!important; width:140px!important; font-size: 12px!important; letter-spacing: 0!important;}
-  #top_about_section .textwidget a {color: #595953!important;}
+  #top_about_section {
+    background: none!important;
+    width:140px!important;
+    font-size: 12px!important;
+    letter-spacing: 0!important;
+    .textwidget a {
+      color: #595953!important;
+    }
+  }
   #social_media {margin-top: 10px!important; width: auto;}
   #social_media img {padding-right: 0!important;}
   #call_to_action {height: auto;}
