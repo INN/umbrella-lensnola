@@ -252,24 +252,6 @@ p.wpsc_email_address_p input,
   min-height: 28px;
   padding-bottom: 3px;
 }
-@media (max-width: 1120px) {
-  .navbar .btn-navbar:hover {
-    background-color: #333;
-    color: #fff;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-    transition: none;
-    background-position: -100px 0;
-  }
-  .navbar .btn-navbar:hover .label {
-    color: #fff;
-  }
-  .navbar .btn-navbar:hover .icon-bar {
-    background-color: #fff;
-  }
-}
 @media (max-width: 768px) {
   #ad-banner-container,
   .navbar,
@@ -696,50 +678,6 @@ p.wp-caption-text {
   margin-bottom: 20px;
   margin-left: 15px;
   padding-left: 15px;
-}
-.navbar .navbar li {
-  display: block;
-  float: left;
-  margin-top: 0;
-  padding-top: 0;
-  text-align: center;
-}
-.navbar .navbar .nav > li > a {
-  color: #fff;
-  border-left: 1px solid #cfccc5;
-}
-.navbar .navbar .nav-collapse li a {
-  color: #595953;
-  background-color: #f2f1ec;
-}
-.navbar .navbar .active > a,
-.navbar .navbar .active > a:hover {
-  background-color: #555550;
-  color: #fff;
-}
-.navbar .navbar .open > a,
-.navbar .navbar li > a:hover,
-.navbar .navbar .nav-collapse li a:hover {
-  background-color: #555550;
-  background-image: none;
-  color: #fff;
-}
-.navbar .navbar .dropdown-menu {
-  background: #9F9992;
-}
-.navbar .navbar .dropdown-menu .navbar-inner-right-investigations a:link,
-.navbar .navbar .dropdown-menu .navbar-inner-right-investigations a:visited {
-  width: auto !important;
-  background: none !important;
-  border-top: none !important;
-  color: #fff !important;
-}
-.navbar .navbar .dropdown-menu .navbar-inner-right-investigations a:hover {
-  background-color: #555550 !important;
-  background-image: none !important;
-  background-repeat: no-repeat;
-  filter: none;
-  padding-bottom: 13px !important;
 }
 h5,
 h5 a,
