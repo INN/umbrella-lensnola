@@ -5,7 +5,8 @@
  * Differs from page.php through the use of a different menu action.
  *
  * Used on post 40438 but there's no corresponding menu for that page.
-*/
+ * Used on the "About Us" page.
+ */
 
 add_action( 'largo_after_hero', 'lens_sidebar_page_nav_custom' );
 
