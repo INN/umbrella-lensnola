@@ -397,6 +397,23 @@ p.wpsc_email_address_p input,
 #widget-squandered {
   font-stye: italic;
 }
+.widget_wmp_widget {
+  font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
+}
+.widget_wmp_widget p {
+  margin-bottom: 0;
+}
+.widget_wmp_widget hr {
+  display: none !important;
+}
+.widget_wmp_widget li {
+  margin: 0;
+}
+.widget_wmp_widget li + li {
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+  border-top: 1px dotted #aaa;
+}
 /**
  * For the "Related Schools Coverage" sidebar thing
  */
@@ -794,9 +811,10 @@ header.search-header h5 {
   width: 100%;
 }
 .btn {
-  -webkit-border-radius: 0 5px 5px 0;
-  -moz-border-radius: 0 5px 5px 0;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0;
+}
+.btn-primary {
+  background-color: #B43018;
 }
 #mailchimp_sumbit {
   width: 39px;
@@ -939,7 +957,6 @@ img.school_thumbnail {
 .right_sidebar_content {
   border: 1px solid #d6d6d5 !important;
   padding: 10px!important;
-  padding-bottom: 0!important;
   font-size: 12px;
   color: #B43018;
   line-height: 15px;
