@@ -432,6 +432,9 @@ body.normal.single-post article.post > header h5.top-tag {
   position: static;
   left: unset;
 }
+.hero {
+  background-color: transparent;
+}
 /**
  * A file of dirty hacks that should be removed in the future.
  *
