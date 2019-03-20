@@ -308,7 +308,7 @@ h5.top-tag {
   border-bottom: none;
 }
 
-header.search-header h5 {border-bottom: 1px solid #BABCBE; padding-bottom: 5px; width:240px;}
+header.search-header h5 {border-bottom: 1px solid #BABCBE; padding-bottom: 5px;}
 
 .entry-content .disclosure-container {font-size:12px; color:#4F4C4D; font-family: @sans;}
 .entry-content .disclosure-container a {color: #4F4C4D;}
@@ -506,9 +506,17 @@ img.school_thumbnail {width:400px !important; height:auto !important; margin-bot
 
 .src {width: 49%; float: left;}
 .drc {width: 49%; float: right;}
-#story_results_container {font-family: @sans;}
-#doccloud_results_container {font-family: @sans;}
-#story_results_container h3, #doccloud_results_container h3 {text-transform: none; font-size: 22px;}
+#story_results_container,
+#doccloud_results_container {
+  font-family: @sans;
+  h3 {
+    text-transform: none;
+    font-size: 20px;
+  }
+}
+#doccloud_results_container h3 {
+  overflow-wrap: break-word;
+}
 
 /*Styles for Sub-Pages--*/
 

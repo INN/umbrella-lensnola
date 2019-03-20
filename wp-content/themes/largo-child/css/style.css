@@ -741,7 +741,6 @@ h5.top-tag {
 header.search-header h5 {
   border-bottom: 1px solid #BABCBE;
   padding-bottom: 5px;
-  width: 240px;
 }
 .entry-content .disclosure-container {
   font-size: 12px;
@@ -984,16 +983,17 @@ img.school_thumbnail {
   width: 49%;
   float: right;
 }
-#story_results_container {
-  font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
-}
+#story_results_container,
 #doccloud_results_container {
   font-family: "news-gothic-std", Helvetica, Arial, sans-serif;
 }
 #story_results_container h3,
 #doccloud_results_container h3 {
   text-transform: none;
-  font-size: 22px;
+  font-size: 20px;
+}
+#doccloud_results_container h3 {
+  overflow-wrap: break-word;
 }
 /*Styles for Sub-Pages--*/
 .school {

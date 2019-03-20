@@ -52,12 +52,13 @@ function largo_child_categories_css() {
 
 	// Used to output certain per-category styles
 	$what_nowdoc = <<<'EOF'
-		.documents {
+		.documents, h5.top-tag .category-documents {
 			background-image: url( '%1$s' );
-			background-position:  left top;
+			background-position:  left center;
 			background-repeat: no-repeat;
-			line-height: 20px;
-			padding: 0 0 5px 30px;
+			background-size: 1em;
+			padding: 0 0 0 1.3em;
+			vertical-align: middle;
 		}
 		.squandered-heritage, h5.top-tag .category-squandered-heritage {padding-top: 0!important; line-height: 18px!important;}
 

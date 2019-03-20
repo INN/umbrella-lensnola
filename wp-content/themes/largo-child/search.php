@@ -99,7 +99,7 @@ query_posts(
 					for (var i = 0; i < top_docs; i++) {
 						html += '<article class="argolinks type-argolinks status-publish hentry clearfix">';
 						html += '<header class="search-header">';
-						html += '<h5 class="documents"><a>Documents</a></h5>';
+						html += '<h5 class="top-tag"><span class="category-documents"><a>Documents</a></span></h5>';
 						html += '<h3 class="entry-title"><a rel="bookmark" title="' + data.documents[i].title + '" href="' + data.documents[i].canonical_url + '" target="_blank">';
 						html += data.documents[i].title + '</a>';
 						html += '</h3><div class="post-meta"></div></header>';
