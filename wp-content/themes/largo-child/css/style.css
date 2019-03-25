@@ -260,6 +260,10 @@ p.wpsc_email_address_p input,
     min-width: auto;
   }
 }
+.navbar li.home-icon > a img {
+  vertical-align: top;
+  height: 56px;
+}
 #site-footer {
   margin: 0 auto;
   max-width: 1170px;
