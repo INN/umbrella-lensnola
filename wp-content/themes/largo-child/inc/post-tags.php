@@ -31,8 +31,14 @@ function largo_child_category_link($term,$slug) {
 /**
  * A filter for largo_byline allowing adding the option tag to the start.
  */
-function largo_byline_filter_option_tag( $byline ) {
-	if ( has_category( 'opinion' ) ) {
+function largo_byline_filter_option_tag( $byline, $args ) {
+	if (
+		! is_array( $args )
+		|| empty( $args['post'] )
+	) {
+		return;
+	}
+	if ( has_category( 'opinion', $args['post'] ) ) {
 		$byline = sprintf(
 			'%1$s %2$s',
 			'<span class="opinion-label">Opinion</span>',
@@ -40,7 +46,7 @@ function largo_byline_filter_option_tag( $byline ) {
 		);
 	}
 
-	
+
 	return $byline;
 }
-add_filter( 'largo_byline', 'largo_byline_filter_option_tag', 10, 1 );
+add_filter( 'largo_byline', 'largo_byline_filter_option_tag', 10, 2 );
