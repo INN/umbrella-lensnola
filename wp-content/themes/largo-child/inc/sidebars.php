@@ -122,7 +122,7 @@ function lens_sidebar_csrc() {
 		</div>
 	<?php
 }
-add_action( 'largo_before_category_river', 'lens_sidebar_csrc' );
+// add_action( 'largo_before_category_river', 'lens_sidebar_csrc' ); // removed during Office Hours 2019-04-05
 
 /**
  * Page navigation
